@@ -1,0 +1,29 @@
+{
+  "name": "self-hosted-app-starter",
+  "version": "0.1.0",
+  "description": "A starter for the self-hosted app, help you to build your next full-stack project.",
+  "scripts": {
+    "dev:be": "air -c backend/scripts/.air.toml",
+    "dev:fe": "cd frontend && pnpm i && pnpm dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:deploy": "sh ./deploy-docs.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoluoboding/self-hosted-starter.git"
+  },
+  "author": "xiaoluoboding",
+  "license": "MIT",
+  "keywords": [
+    "self-hosted", "starter", "go", "sqlite",
+    "vue3", "tailwindcss", "vite", "vitepress"
+  ],
+  "bugs": {
+    "url": "https://github.com/xiaoluoboding/self-hosted-starter/issues"
+  },
+  "homepage": "https://github.com/xiaoluoboding/self-hosted-starter#readme",
+  "devDependencies": {
+    "vitepress": "^0.22.4"
+  }
+}
