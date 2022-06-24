@@ -8,22 +8,29 @@
     </p>
 
     <div
-      class="flex space-x-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center"
+      class="grid grid-cols-1 gap-x-4 gap-y-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center"
     >
       <button
         v-for="item of items"
         :key="item.id"
         type="button"
         :aria-label="item.name"
-        class="px-4 py-3 mb-2 text-left flex items-center rounded-lg cursor-pointer card-bd card-bg text-primary transition-colors duration-150 ease-in-out hover:border-slate-500"
-        :class="{ 'border-slate-500': selectedItem === item.id }"
-        @click="$emit('toggle', item.id)"
+        class="w-full px-4 py-3 mb-2 text-left flex items-center rounded-lg cursor-pointer card-bd card-bg text-primary transition-colors duration-150 ease-in-out hover:border-slate-500"
+        :class="{
+          'border-violet-500 bg-violet-100 dark:bg-violet-500 dark:border-violet-300':
+            selectedItem === item.name
+        }"
+        @click="$emit('toggle', item.name)"
       >
         <div class="overflow-hidden truncate">
           {{ item.name }} ({{ item.counts }})
         </div>
         <slot name="badge" v-bind="item" />
         <div class="flex-auto" />
+        <UnoIcon
+          v-if="selectedItem === item.name"
+          class="flex-none i-carbon-checkmark"
+        />
       </button>
     </div>
   </div>

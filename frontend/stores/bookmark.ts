@@ -22,7 +22,7 @@ export const useBookmarkStore = defineStore({
         }
       }
 
-      return Array.from(tagMap.values())
+      return Array.from(tagMap.values()).sort((a, b) => b.counts - a.counts)
     }
   },
 

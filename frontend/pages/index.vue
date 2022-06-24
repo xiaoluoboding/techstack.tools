@@ -1,5 +1,7 @@
 <template>
-  <div class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans">
+  <div
+    class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary"
+  >
     <div
       class="relative bg-white dark:bg-slate-800 !bg-glass dark:text-slate-50 shadow w-full sticky top-0 z-50 border-none"
     >
@@ -13,10 +15,12 @@
           <!-- Hero -->
           <TheHero />
           <!-- Stats -->
-          <!-- <TheStats
-            :modules="state.modules"
-            :stats="state.stats"
-          /> -->
+          <TheStats
+            :stats="{
+              tools: allBookmarkList.length,
+              categories: categoriesList.length
+            }"
+          />
         </div>
       </div>
       <!-- SVG Background -->
@@ -49,7 +53,9 @@
       </div>
     </div>
 
-    <div class="w-full container px-4 mx-auto pt-8 mt-36">
+    <div
+      class="w-full max-w-390 px-4 mx-auto mt-24 pt-8 grid grid-cols-1 lg:grid-cols-[18em_1fr] gap-4"
+    >
       <!-- Sidebar -->
       <TheDrawer
         :open="isDrawerOpen"
@@ -74,8 +80,31 @@
         </div>
       </TheDrawer>
 
+      <!-- The main -->
       <main class="mx-auto">
-        <div class="h-10 -mt-5 mb-2 flex items-center gap-1"></div>
+        <!-- Filter -->
+        <div class="h-10 -mt-5 mb-2 flex items-center gap-1">
+          <template v-if="displayFiltersBlock">
+            <div>Filter{{ filtersCount > 1 ? 's' : '' }}</div>
+            <FilterLabel
+              v-if="selectedCategory"
+              @close="selectedCategory = null"
+            >
+              {{ selectedCategory }}
+            </FilterLabel>
+            <FilterLabel v-if="q" @close="q = ''">
+              {{ q }}
+            </FilterLabel>
+            <a
+              href="/"
+              class="ml-2 opacity-70 hover:opacity-100 inline-flex items-center gap-1"
+              @click.prevent="clearFilters"
+            >
+              <UnoIcon class="i-carbon-filter-remove" />
+              Clear filter{{ filtersCount > 1 ? 's' : '' }}
+            </a>
+          </template>
+        </div>
         <div
           class="flex flex-col items-center justify-between min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
         >
@@ -143,7 +172,8 @@ const filterdBookmarkList = computed(() => {
   if (selectedCategory.value) {
     list = list.filter((item) => {
       return (
-        item.tag.findIndex((item) => item.id === selectedCategory.value) !== -1
+        item.tag.findIndex((item) => item.name === selectedCategory.value) !==
+        -1
       )
     })
   }
@@ -156,6 +186,19 @@ const paginatedBookmarkList = computed(() =>
     PAGE_SIZE * pageCount.value
   )
 )
+
+const displayFiltersBlock = computed(() => selectedCategory.value || q.value)
+
+const filtersCount = computed(() => {
+  let count = 0
+  if (selectedCategory.value) {
+    count++
+  }
+  if (q.value) {
+    count++
+  }
+  return count
+})
 
 const loginAsGuest = async () => {
   await login('chris.damon@demo.com', '123456')
@@ -172,6 +215,11 @@ function toggleCategory(category) {
     return
   }
   selectedCategory.value = category
+}
+
+function clearFilters() {
+  selectedCategory.value = null
+  q.value = null
 }
 
 const initBookmarkList = async () => {
@@ -200,5 +248,3 @@ onMounted(async () => {
   // await notionStore.fetchPage()
 })
 </script>
-
-<style></style>

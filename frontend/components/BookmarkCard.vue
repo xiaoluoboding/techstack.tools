@@ -1,7 +1,7 @@
 <template>
   <figure
     class="web-bookmark-card relative inset-0 overflow-hidden text-left transition-all duration-300 ease-out max-w-screen"
-    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : 'lg:w-120']"
+    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : 'lg:w-96']"
   >
     <slot />
     <a
@@ -15,7 +15,7 @@
       <div
         class="relative flex order-1 min-w-1/2 w-full basis-[0]"
         style="flex-grow: 999"
-        :class="[qrcode ? 'justify-between !pl-4' : 'p-4']"
+        :class="[qrcode ? 'justify-between px-3 py-2' : 'p-4']"
       >
         <div
           class="flex-1 flex flex-col justify-center font-sans"
@@ -29,13 +29,13 @@
             <span>{{ metaData.title }}</span>
           </div>
           <div
-            class="items-center mt-3 line-clamp-2"
+            class="items-center mt-2 line-clamp-2"
             :class="[horizontal ? 'text-xs' : 'text-sm']"
             text="slate-800 dark:slate-400"
           >
             {{ metaData.description }}
           </div>
-          <div class="items-center flex truncate mt-3">
+          <div class="items-center flex truncate mt-2">
             <div class="flex items-center truncate">
               <img
                 v-if="metaData.logo"
@@ -54,15 +54,18 @@
           </div>
         </div>
 
-        <div v-if="qrcode && metaData.link" class="w-32 h-32">
-          <FancyQRCode :url="metaData.link" class="w-32 h-32" />
+        <div v-if="qrcode && metaData.link" class="w-24 h-24">
+          <FancyQRCode
+            :url="metaData.link"
+            class="w-24 h-24 transform scale-125"
+          />
         </div>
       </div>
       <div
         v-if="metaData.image"
         class="relative min-w-1/3 max-h-full"
         :class="[
-          horizontal ? 'h-32 basis-[13.5rem]' : 'h-64 basis-[16rem] flex-grow'
+          horizontal ? 'h-32 basis-[13.5rem]' : 'h-48 basis-[16rem] flex-grow'
         ]"
       >
         <img
@@ -239,6 +242,6 @@ watch(
 
 <style scoped>
 .has-qrcode {
-  width: calc(100% - 8rem);
+  width: calc(100% - 6rem);
 }
 </style>
