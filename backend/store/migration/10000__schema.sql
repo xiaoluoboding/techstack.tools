@@ -25,3 +25,22 @@ SET
 WHERE
   rowid = old.rowid;
 END;
+
+-- bookmark
+CREATE TABLE bookmark (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created_ts BIGINT NOT NULL DEFAULT (strftime('%s', 'now')),
+  updated_ts BIGINT NOT NULL DEFAULT (strftime('%s', 'now')),
+
+  link TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  author TEXT NOT NULL,
+  publisher TEXT NOT NULL,
+  image TEXT NOT NULL,
+  logo TEXT NOT NULL,
+  tag JSONB NOT NULL DEFAULT '{}'
+);
+
+CREATE UNIQUE INDEX idx_bookmark_link ON bookmark(link);
+

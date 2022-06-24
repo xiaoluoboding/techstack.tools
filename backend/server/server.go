@@ -63,6 +63,7 @@ func NewServer(profile *common.Profile) *Server {
 	s.registerSystemRoutes(apiGroup)
 	s.registerAuthRoutes(apiGroup)
 	s.registerUserRoutes(apiGroup)
+	s.registerBookmarkRoutes(apiGroup)
 
 	return s
 }
