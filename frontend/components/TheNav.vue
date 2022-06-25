@@ -4,7 +4,7 @@
   >
     <slot name="head" />
     <div class="flex" :class="isSearchOpen ? 'hidden' : ''">
-      <a href="/" class="inline-flex text-2xl">
+      <a href="/" class="inline-flex text-base lg:text-2xl">
         <span class="my-auto ml-1 pt-0.5"> TechStack Tools </span>
       </a>
     </div>

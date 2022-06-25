@@ -4,7 +4,7 @@
       class="text-6xl sm:text-5xl md:text-6xl pb-1 mb-2 md:mb-4 overflow-ellipsis overflow-hidden"
     >
       Explore
-      <span class="text-brand">Tech Stack</span> Tools
+      <span class="text-neon">Tech Stack</span> Tools
     </h1>
     <div class="py-4">
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
@@ -16,7 +16,7 @@
     </div>
     <div class="max-w-xl mt-4 text-left">
       <a
-        href="https://github.com/xiaoluoboding/tech-stack.tools/issue"
+        :href="GITHUB_ISSUE_URL"
         rel="noopener"
         target="_blank"
         class="text-base font-semibold items-center py-4 px-8 text-secondary-darker dark:text-white bg-gray-500 bg-opacity-10 hover:bg-opacity-20 rounded-lg inline-flex gap-3"
@@ -26,3 +26,7 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { GITHUB_ISSUE_URL } from '@/composables/constants'
+</script>

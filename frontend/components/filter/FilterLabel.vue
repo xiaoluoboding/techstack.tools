@@ -1,6 +1,6 @@
 <template>
   <span
-    class="inline-flex items-center nuxt-card-bg px-3 py-1 nuxt-card-border rounded-full text-sm select-none"
+    class="inline-flex items-center px-3 py-1 card-bd rounded-full text-sm select-none"
   >
     <slot />
     <UnoIcon

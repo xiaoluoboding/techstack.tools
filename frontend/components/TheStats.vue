@@ -8,7 +8,7 @@
           >Total</span
         >
         <dd
-          class="text-4xl font-black text-brand dark:text-brand leading-none sm:text-6xl"
+          class="text-4xl font-black text-neon leading-none sm:text-6xl"
           aria-describedby="item-1"
         >
           {{ stats.tools }}
@@ -26,9 +26,7 @@
           aria-hidden="true"
           >Total</span
         >
-        <dd
-          class="text-4xl font-black text-brand dark:text-brand leading-none sm:text-6xl"
-        >
+        <dd class="text-4xl font-black text-neon leading-none sm:text-6xl">
           {{ stats.categories }}
         </dd>
         <dt

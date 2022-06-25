@@ -1,11 +1,21 @@
 <template>
   <div
-    class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary"
+    class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary transition linear"
   >
     <div
       class="relative bg-white dark:bg-slate-800 !bg-glass dark:text-slate-50 shadow w-full sticky top-0 z-50 border-none"
     >
-      <TheNav ref="searchEl" :search="q"> </TheNav>
+      <TheNav ref="searchEl" :search="q">
+        <template #head>
+          <button
+            aria-label="Toggle Drawer"
+            class="!outline-none text-xl h-1.2em my-auto block lg:hidden"
+            @click="isDrawerOpen = true"
+          >
+            <UnoIcon class="i-carbon-menu" />
+          </button>
+        </template>
+      </TheNav>
     </div>
     <div
       class="pt-10 pb-16 px-3 lg:px-10 lg:pt-24 lg:pb-32 bg-white dark:bg-slate-800 relative"
@@ -26,7 +36,7 @@
       <!-- SVG Background -->
       <div class="text-gray-100 dark:text-slate-700">
         <svg
-          class="absolute -bottom-1px left-0 right-0 top-4 w-full pointer-events-none z-0"
+          class="absolute -bottom-1px left-0 right-0 top-50 lg:top-12 w-full pointer-events-none"
           preserveAspectRatio="none"
           fill="none"
           id="visual"
@@ -35,18 +45,23 @@
           height="540"
         >
           <path
-            class="fill-violet-300"
+            class="fill-violet-300 z-1"
             d="M0 341L137 265L274 356L411 273L549 266L686 348L823 248L960 296L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
             style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
           ></path>
           <path
-            class="fill-violet-500"
+            class="fill-violet-500 z-2"
             d="M0 365L137 395L274 383L411 405L549 347L686 359L823 367L960 405L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
             style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
           ></path>
           <path
-            class="fill-violet-700"
+            class="fill-violet-700 z-3"
             d="M0 475L137 449L274 477L411 472L549 484L686 492L823 473L960 439L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+            style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
+          ></path>
+          <path
+            d="M0 496L137 498L274 432L411 475L549 464L686 493L823 446L960 493L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+            class="fill-gray-100 dark:fill-slate-700 z-4 transform translate-y-10"
             style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
           ></path>
         </svg>
@@ -59,7 +74,7 @@
       <!-- Sidebar -->
       <TheDrawer
         :open="isDrawerOpen"
-        :drawer-class="'bg-gray-100 dark:bg-secondary-black p-4 w-20em border-r nuxt-border h-full overflow-auto'"
+        :drawer-class="'bg-gray-100 dark:bg-slate-800 p-4 w-20em border-r nuxt-border h-full overflow-auto'"
         @close="isDrawerOpen = false"
       >
         <div class="p-4 relative">
@@ -81,10 +96,38 @@
       </TheDrawer>
 
       <!-- The main -->
-      <main class="mx-auto">
-        <!-- Filter -->
-        <div class="h-10 -mt-5 mb-2 flex items-center gap-1">
-          <template v-if="displayFiltersBlock">
+      <main class="mx-auto w-full">
+        <!-- Header -->
+        <div class="h-10 mt-5 mb-2 flex items-center gap-1 justify-between">
+          <div class="mb-4 flex space-x-2 items-center">
+            <label for="">
+              <span class="font-black text-3xl">
+                {{ filterdBookmarkList.length }}
+              </span>
+              <span>
+                tool{{ filterdBookmarkList.length > 1 ? 's' : '' }} found</span
+              >
+            </label>
+          </div>
+
+          <div class="mb-4">
+            <a
+              class="btn"
+              :href="GITHUB_ISSUE_URL"
+              rel="noopener"
+              target="_blank"
+            >
+              <UnoIcon class="i-carbon-add h-6 w-6"></UnoIcon>
+              <span>Add Your Tools</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Filter & Sorter -->
+        <div
+          class="flex flex-col items-center justify-between min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
+        >
+          <div v-if="displayFiltersBlock" class="flex items-center space-x-2">
             <div>Filter{{ filtersCount > 1 ? 's' : '' }}</div>
             <FilterLabel
               v-if="selectedCategory"
@@ -103,17 +146,8 @@
               <UnoIcon class="i-carbon-filter-remove" />
               Clear filter{{ filtersCount > 1 ? 's' : '' }}
             </a>
-          </template>
-        </div>
-        <div
-          class="flex flex-col items-center justify-between min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
-        >
-          <div>
-            <span class="font-black text-2xl">{{
-              filterdBookmarkList.length
-            }}</span>
-            tool{{ filterdBookmarkList.length > 1 ? 's' : '' }} found
           </div>
+          <div v-else></div>
           <TheOrderBy
             v-show="!q"
             :order-by="orderBy"
@@ -125,16 +159,16 @@
 
         <!-- Bookmark Card -->
         <div
-          class="grid lg:grid-cols-3 gap-x-6 gap-y-8 place-items-center mt-8"
+          class="grid sm:grid-cols-2 2xl:grid-cols-3 gap-6 place-items-center mt-8"
         >
-          <template v-for="card in paginatedBookmarkList" :key="card.id">
+          <div v-for="card in paginatedBookmarkList" :key="card.id">
             <BookmarkCard :meta="card" qrcode class="card-bd hover:shadow-2xl">
               <div
                 class="inset-0 absolute -z-1 rounded-xl inset-0 bg-transparent"
                 :class="selectedBackground"
               />
             </BookmarkCard>
-          </template>
+          </div>
         </div>
       </main>
     </div>
@@ -149,8 +183,7 @@ import { useNotionStore } from '@/stores/notion'
 import { useBookmarkStore } from '@/stores/bookmark'
 
 import { login, getUserInfo, getBookmarkList } from '@/services'
-
-const PAGE_SIZE = 30
+import { GITHUB_ISSUE_URL, PAGE_SIZE } from '@/composables/constants'
 
 const userStore = useUserStore()
 const notionStore = useNotionStore()
@@ -240,11 +273,58 @@ const initBookmarkList = async () => {
   }
 }
 
+const fetchNotionDatabase = async () => {
+  const { data } = await getBookmarkList()
+
+  if (data.length === 1) {
+    await notionStore.fetchPage()
+  }
+}
+
 onMounted(async () => {
   await loginAsGuest()
 
-  await initBookmarkList()
+  await fetchNotionDatabase()
 
-  // await notionStore.fetchPage()
+  await initBookmarkList()
 })
 </script>
+
+<style>
+.gradient-border {
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    135deg,
+    rgba(31, 54, 77, 0.66),
+    rgba(31, 54, 77, 0.66) 25%,
+    #8b5cf6 50%,
+    #ede9fe 100%
+  );
+  background-position: 0 0;
+  background-size: 400% auto;
+  transition: background-position 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  opacity: 0.5;
+  border-radius: 12px;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 10;
+}
+
+.gradient-border:hover::before {
+  background-position: -50% 0;
+  padding: 3px;
+  opacity: 1;
+}
+</style>

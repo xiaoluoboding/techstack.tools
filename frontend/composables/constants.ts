@@ -24,3 +24,8 @@ export const ORDER_BY_FIELDS = {
   updatedAt: 'Updated',
   createdAt: 'Created'
 }
+
+export const GITHUB_ISSUE_URL =
+  'https://github.com/xiaoluoboding/tech-stack.tools/issues/new/choose'
+
+export const PAGE_SIZE = 30

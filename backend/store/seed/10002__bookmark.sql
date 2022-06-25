@@ -20,5 +20,5 @@ VALUES
     'GitHub',
     'https://opengraph.githubassets.com/07160d87b33e35c90675baa74588218521ce1824f028221e65e7a4c20cecb8a9/one-tab-group/metafy',
     'https://github.com/fluidicon.png',
-    '["SEO","Serverless"]'
+    '[{"id":"09eb946d-78hd-495d-837d-9c61d228b02f","name":"Serverless","color":"yellow"}]'
   );
