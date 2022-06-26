@@ -35,6 +35,10 @@ export default defineConfig<UnocssNuxtOptions>({
     'bg-glass': 'bg-opacity-80 backdrop-filter backdrop-blur-[12px]',
     'card-bg': 'bg-white dark:bg-slate-800',
     'card-bd': 'border border-gray-200 dark:border-slate-600',
-    btn: 'flex ml-auto text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded cursor-pointer'
+    btn: 'inline-flex ml-auto text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded cursor-pointer',
+    'btn-secondary':
+      'inline-flex ml-auto text-violet-500 dark:text-white border-violet-500 border-1 py-2 px-6 focus:outline-none hover:text-white hover:bg-violet-600 rounded cursor-pointer',
+    'btn-lg': 'btn py-4 px-8 gap-3',
+    'btn-secondary-lg': 'btn-secondary py-4 px-8 gap-3'
   }
 })

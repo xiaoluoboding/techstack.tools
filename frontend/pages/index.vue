@@ -5,7 +5,7 @@
     <div
       class="relative bg-white dark:bg-slate-800 !bg-glass dark:text-slate-50 shadow w-full sticky top-0 z-50 border-none"
     >
-      <TheNav ref="searchEl" :search="q">
+      <TheNav>
         <template #head>
           <button
             aria-label="Toggle Drawer"
@@ -28,7 +28,8 @@
           <TheStats
             :stats="{
               tools: allBookmarkList.length,
-              categories: categoriesList.length
+              categories: categoriesList.length,
+              newsletters: newsletterWeeks
             }"
           />
         </div>
@@ -47,15 +48,13 @@
           <path
             class="fill-violet-300 z-1"
             d="M0 341L137 265L274 356L411 273L549 266L686 348L823 248L960 296L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
-            style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
+            style="
+              transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s;
+              transform: translateY(100px);
+            "
           ></path>
           <path
-            class="fill-violet-500 z-2"
-            d="M0 365L137 395L274 383L411 405L549 347L686 359L823 367L960 405L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
-            style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
-          ></path>
-          <path
-            class="fill-violet-700 z-3"
+            class="fill-violet-500 z-3"
             d="M0 475L137 449L274 477L411 472L549 484L686 492L823 473L960 439L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
             style="transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0s"
           ></path>
@@ -69,7 +68,7 @@
     </div>
 
     <div
-      class="w-full max-w-390 px-4 mx-auto mt-24 pt-8 grid grid-cols-1 lg:grid-cols-[18em_1fr] gap-4"
+      class="w-full max-w-390 px-4 mx-auto mt-16 pt-8 grid grid-cols-1 lg:grid-cols-[18em_1fr] gap-4"
     >
       <!-- Sidebar -->
       <TheDrawer
@@ -97,36 +96,9 @@
 
       <!-- The main -->
       <main class="mx-auto w-full">
-        <!-- Header -->
+        <!-- The Tool Bar -->
         <div class="h-10 mt-5 mb-2 flex items-center gap-1 justify-between">
-          <div class="mb-4 flex space-x-2 items-center">
-            <label for="">
-              <span class="font-black text-3xl">
-                {{ filterdBookmarkList.length }}
-              </span>
-              <span>
-                tool{{ filterdBookmarkList.length > 1 ? 's' : '' }} found</span
-              >
-            </label>
-          </div>
-
-          <div class="mb-4">
-            <a
-              class="btn"
-              :href="GITHUB_ISSUE_URL"
-              rel="noopener"
-              target="_blank"
-            >
-              <UnoIcon class="i-carbon-add h-6 w-6"></UnoIcon>
-              <span>Add Your Tools</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Filter & Sorter -->
-        <div
-          class="flex flex-col items-center justify-between min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
-        >
+          <!-- Filter -->
           <div v-if="displayFiltersBlock" class="flex items-center space-x-2">
             <div>Filter{{ filtersCount > 1 ? 's' : '' }}</div>
             <FilterLabel
@@ -148,13 +120,46 @@
             </a>
           </div>
           <div v-else></div>
+
+          <div class="flex items-center flex-1">
+            <a
+              class="btn"
+              :href="GITHUB_ISSUE_URL"
+              rel="noopener"
+              target="_blank"
+            >
+              <UnoIcon class="i-carbon-add h-6 w-6"></UnoIcon>
+              <span>Add Your Tools</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sorter -->
+        <div
+          class="grid grid-cols-3 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
+        >
+          <div class="flex space-x-2 items-center">
+            <label>
+              <span class="font-black text-3xl">
+                {{ filterdBookmarkList.length }}
+              </span>
+              <span>
+                tool{{ filterdBookmarkList.length > 1 ? 's' : '' }} found</span
+              >
+            </label>
+          </div>
+
+          <GlobalSearch ref="searchEl" v-model:search="q" />
+
           <TheOrderBy
-            v-show="!q"
+            class="flex justify-end"
+            v-if="!q"
             :order-by="orderBy"
             :sort-by="sortBy"
             @update:order-by="(v) => (orderBy = v)"
             @update:sort-by="(v) => (sortBy = v)"
           />
+          <div v-else></div>
         </div>
 
         <!-- Bookmark Card -->
@@ -177,6 +182,8 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
+import dayjs from 'dayjs'
+import Fuse from 'fuse.js/dist/fuse.basic.esm'
 
 import { useUserStore } from '@/stores/user'
 import { useNotionStore } from '@/stores/notion'
@@ -189,6 +196,11 @@ const userStore = useUserStore()
 const notionStore = useNotionStore()
 const bookmarkStore = useBookmarkStore()
 
+const fuseOptions = {
+  threshold: 0.1,
+  keys: ['link', 'title', 'author', 'publisher', 'description', 'tag']
+}
+
 const allBookmarkList = ref<Bookmark[]>([])
 const q = ref('')
 const orderBy = ref('createdAt')
@@ -200,8 +212,17 @@ const selectedBackground = `bg-gradient-to-br from-green-300 via-blue-500 to-pur
 
 const categoriesList = computed(() => bookmarkStore.bookmarkTagList)
 
+const fuse = computed(() => {
+  const fuseIndex = Fuse.createIndex(fuseOptions.keys, allBookmarkList.value)
+  return new Fuse(allBookmarkList.value, fuseOptions, fuseIndex)
+})
+
 const filterdBookmarkList = computed(() => {
   let list = allBookmarkList.value
+
+  if (q.value) {
+    list = fuse.value.search(q.value).map((r) => r.item)
+  }
   if (selectedCategory.value) {
     list = list.filter((item) => {
       return (
@@ -231,6 +252,10 @@ const filtersCount = computed(() => {
     count++
   }
   return count
+})
+
+const newsletterWeeks = computed(() => {
+  return Math.round(dayjs().diff(dayjs('2021-11-25'), 'weeks', true))
 })
 
 const loginAsGuest = async () => {
@@ -279,6 +304,34 @@ const fetchNotionDatabase = async () => {
   if (data.length === 1) {
     await notionStore.fetchPage()
   }
+}
+
+watch([q, orderBy, sortBy, selectedCategory], syncURL, { deep: true })
+
+const route = useRoute()
+
+function syncURL() {
+  const url = route.path
+  const queries = []
+
+  if (q.value) {
+    queries.push(`q=${q.value}`)
+  }
+  if (orderBy.value !== 'downloads') {
+    queries.push(`orderBy=${orderBy.value}`)
+  }
+  if (sortBy.value !== 'desc') {
+    queries.push(`sortBy=${sortBy.value}`)
+  }
+  if (selectedCategory.value) {
+    queries.push(`category=${selectedCategory.value}`)
+  }
+  let query = queries.join('&')
+  if (query) {
+    query = '?' + query
+  }
+
+  window.history.pushState('', '', `${url}${query}`)
 }
 
 onMounted(async () => {
