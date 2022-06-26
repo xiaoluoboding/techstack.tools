@@ -1,4 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
+import ViteComponents from 'unplugin-vue-components/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
 const title = 'Explore Tech Stack Tools'
 const description =
@@ -60,7 +62,8 @@ export default defineNuxtConfig({
     // https://vueuse.org
     '@vueuse/nuxt',
     // https://color-mode.nuxtjs.org
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
+    'unplugin-icons/nuxt'
   ],
 
   runtimeConfig: {
@@ -78,6 +81,16 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    plugins: [
+      ViteComponents({
+        resolvers: [
+          IconsResolver({
+            componentPrefix: ''
+          })
+        ],
+        dts: true
+      })
+    ],
     // connect the backend
     server: {
       cors: true,

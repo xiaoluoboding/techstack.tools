@@ -1,6 +1,6 @@
 <template>
   <div
-    class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary transition linear"
+    class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary transition duration-300 ease-in-out"
   >
     <div
       class="relative bg-white dark:bg-slate-800 !bg-glass dark:text-slate-50 shadow w-full sticky top-0 z-50 border-none"
@@ -12,7 +12,7 @@
             class="!outline-none text-xl h-1.2em my-auto block lg:hidden"
             @click="isDrawerOpen = true"
           >
-            <UnoIcon class="i-carbon-menu" />
+            <carbon:menu />
           </button>
         </template>
       </TheNav>
@@ -73,16 +73,16 @@
       <!-- Sidebar -->
       <TheDrawer
         :open="isDrawerOpen"
-        :drawer-class="'bg-gray-100 dark:bg-slate-800 p-4 w-20em border-r nuxt-border h-full overflow-auto'"
+        :drawer-class="'bg-gray-100 dark:bg-slate-800 p-4 w-20em border-r h-full overflow-auto'"
         @close="isDrawerOpen = false"
       >
-        <div class="p-4 relative">
+        <div class="p-4">
           <button
             aria-label="Close Drawer"
             class="absolute top-0 right-0 !outline-none text-2xl block lg:hidden"
             @click="isDrawerOpen = false"
           >
-            <UnoIcon class="i-carbon-close" />
+            <carbon:close />
           </button>
           <FilterButtons
             title="Categories"
@@ -95,7 +95,7 @@
       </TheDrawer>
 
       <!-- The main -->
-      <main class="mx-auto w-full">
+      <main class="mx-auto w-full z-10">
         <!-- The Tool Bar -->
         <div class="h-10 mt-5 mb-2 flex items-center gap-1 justify-between">
           <!-- Filter -->
@@ -115,7 +115,7 @@
               class="ml-2 opacity-70 hover:opacity-100 inline-flex items-center gap-1"
               @click.prevent="clearFilters"
             >
-              <UnoIcon class="i-carbon-filter-remove" />
+              <carbon:filter-remove />
               Clear filter{{ filtersCount > 1 ? 's' : '' }}
             </a>
           </div>
@@ -128,7 +128,7 @@
               rel="noopener"
               target="_blank"
             >
-              <UnoIcon class="i-carbon-add h-6 w-6"></UnoIcon>
+              <carbon:add class="h-6 w-6" />
               <span>Add Your Tools</span>
             </a>
           </div>
@@ -167,7 +167,11 @@
           class="grid sm:grid-cols-2 2xl:grid-cols-3 gap-6 place-items-center mt-8"
         >
           <div v-for="card in paginatedBookmarkList" :key="card.id">
-            <BookmarkCard :meta="card" qrcode class="card-bd hover:shadow-2xl">
+            <BookmarkCard
+              :meta="card"
+              :qrcode="globalStore.isShowQRCode"
+              class="card-bd hover:shadow-2xl"
+            >
               <div
                 class="inset-0 absolute -z-1 rounded-xl inset-0 bg-transparent"
                 :class="selectedBackground"
@@ -175,6 +179,8 @@
             </BookmarkCard>
           </div>
         </div>
+
+        <Pagination class="w-full mt-10" />
       </main>
     </div>
   </div>
@@ -185,6 +191,7 @@ import { ref, computed } from 'vue'
 import dayjs from 'dayjs'
 import Fuse from 'fuse.js/dist/fuse.basic.esm'
 
+import { useGlobalState } from '@/stores/global'
 import { useUserStore } from '@/stores/user'
 import { useNotionStore } from '@/stores/notion'
 import { useBookmarkStore } from '@/stores/bookmark'
@@ -192,6 +199,7 @@ import { useBookmarkStore } from '@/stores/bookmark'
 import { login, getUserInfo, getBookmarkList } from '@/services'
 import { GITHUB_ISSUE_URL, PAGE_SIZE } from '@/composables/constants'
 
+const globalStore = useGlobalState()
 const userStore = useUserStore()
 const notionStore = useNotionStore()
 const bookmarkStore = useBookmarkStore()

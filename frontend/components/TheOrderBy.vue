@@ -44,13 +44,8 @@
           class="flex items-center p-2 hover:bg-sky-lightest focus:bg-sky-lightest focus:outline-none rounded-r-md"
           @click="toggleSortBy"
         >
-          <UnoIcon
-            :class="
-              sortBy === 'asc'
-                ? 'i-carbon-sort-ascending'
-                : 'i-carbon-sort-descending'
-            "
-          />
+          <carbon:sort-ascending v-if="sortBy === 'asc'" />
+          <carbon:sort-descending v-else />
         </button>
       </div>
     </div>

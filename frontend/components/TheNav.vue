@@ -10,14 +10,15 @@
     </div>
 
     <div class="flex gap-6 items-center">
-      <NuxtLink to="/about">Weekly Newsletters</NuxtLink>
+      <NuxtLink to="/about">Weekly</NuxtLink>
+      <NuxtLink to="/about">Newsletters</NuxtLink>
       <NuxtLink to="/about">About</NuxtLink>
       <button
         aria-label="Search"
         class="block md:hidden !outline-none text-xl h-1.2em my-auto"
         @click="toggleSearch()"
       >
-        <UnoIcon class="i-carbon-search" />
+        <carbon:search />
       </button>
       <a
         aria-label="GitHub"
@@ -25,16 +26,27 @@
         href="https://github.com/xiaoluoboding/tech-stack.tools"
         target="_blank"
       >
-        <UnoIcon class="i-carbon-logo-github" />
+        <carbon:logo-github />
       </a>
+      <button
+        aria-label="Toggle theme"
+        class="!outline-none text-xl h-1.2em my-auto"
+        @click="toggleQRCode()"
+      >
+        <mdi:qrcode-plus v-if="isShowQRCode" />
+        <mdi:qrcode-remove v-else />
+      </button>
       <button
         aria-label="Toggle theme"
         class="!outline-none text-xl h-1.2em my-auto"
         @click="toggleDark()"
       >
-        <UnoIcon class="dark:i-carbon-moon i-carbon-sun" />
+        <carbon:moon v-if="isDark" />
+        <carbon:sun v-else />
       </button>
-      <button class="btn-secondary">Collect Wallet</button>
+      <button class="btn-secondary" data-trick="Gotcha you">
+        Collect Wallet
+      </button>
     </div>
     <slot name="tail" />
   </div>
@@ -42,9 +54,16 @@
 
 <script setup lang="ts">
 import { useDark } from '~/composables/useDark'
+import { useGlobalState } from '@/stores/global'
 
-const { toggleDark } = useDark()
+const { isDark, toggleDark } = useDark()
+const globalState = useGlobalState()
 
 const isSearchOpen = ref(false)
+const isShowQRCode = computed(() => globalState.isShowQRCode)
 const toggleSearch = () => {}
+
+const toggleQRCode = () => {
+  globalState.setGlobalState({ isShowQRCode: !globalState.isShowQRCode })
+}
 </script>

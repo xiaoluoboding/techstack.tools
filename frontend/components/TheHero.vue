@@ -18,7 +18,7 @@
     </div>
     <div class="max-w-xl mt-4 text-left space-x-4">
       <a :href="GITHUB_ISSUE_URL" rel="noopener" target="_blank" class="btn-lg">
-        <UnoIcon class="i-carbon-logo-github text-xl" /> Contribute on GitHub
+        <carbon:logo-github class="text-xl" /> Contribute on GitHub
       </a>
       <a
         :href="NEWSLETTERS_URL"
@@ -26,7 +26,7 @@
         target="_blank"
         class="btn-secondary-lg"
       >
-        <UnoIcon class="i-carbon-email text-xl" /> Subscribe newsletters
+        <carbon:email class="text-xl" /> Subscribe newsletters
       </a>
     </div>
   </div>
