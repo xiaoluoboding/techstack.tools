@@ -62,15 +62,20 @@
         </div>
       </div>
       <div
-        v-if="metaData.image"
         class="relative min-w-1/3 max-h-full"
         :class="[
           horizontal ? 'h-32 basis-[13.5rem]' : 'h-48 basis-[16rem] flex-grow'
         ]"
       >
         <img
+          v-if="metaData.image"
           class="relative m-0 w-full h-full align-bottom object-cover"
           :src="metaData.image"
+        />
+        <img
+          v-else
+          class="relative m-0 w-full h-full align-bottom object-cover"
+          :src="`https://picsum.photos/seed/${metaData.title}/640/360`"
         />
       </div>
     </a>

@@ -9,8 +9,10 @@
     <div class="py-4 space-y-2">
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
         Discover our curated list of devtools to
-        <span class="text-neon">supercharge</span> your next project. Subscribe
-        our Front-end Tech Stack Weekly
+        <span class="text-neon">supercharge</span> your next project.
+      </p>
+      <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
+        Subscribe our Front-end Tech Stack Weekly
         <span class="text-neon">newsletters</span>, Join 500+ readers.
       </p>
     </div>
