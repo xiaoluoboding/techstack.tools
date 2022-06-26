@@ -5,10 +5,12 @@ import type { User, UserState } from '~~/types/user'
 
 export const useUserStore = defineStore({
   id: 'user',
+
   state: (): UserState => ({
     userMap: new Map(),
     currentUser: {}
   }),
+
   getters: {
     userList(state: UserState): User[] {
       return Array.from(state.userMap.values())
@@ -17,6 +19,7 @@ export const useUserStore = defineStore({
       return state.currentUser.role === 'OWNER'
     }
   },
+
   actions: {
     addUser(user: User) {
       this.userMap.set(user.id, user)

@@ -35,6 +35,21 @@
           categories
         </dt>
       </div>
+      <div class="flex-col space-y-2 p-4">
+        <span
+          class="font-normal leading-6 text-lg sm:mt-2 sm:text-lg sm:capitalize"
+          aria-hidden="true"
+          >Total</span
+        >
+        <dd class="text-4xl font-black text-neon leading-none sm:text-6xl">
+          {{ stats.newsletters }}
+        </dd>
+        <dt
+          class="font-medium leading-6 text-lg sm:mt-2 sm:text-lg sm:capitalize"
+        >
+          newsletters
+        </dt>
+      </div>
     </dl>
   </div>
 </template>
@@ -44,6 +59,7 @@ defineProps<{
   stats: {
     tools: number
     categories: number
+    newsletters: number
   }
 }>()
 </script>

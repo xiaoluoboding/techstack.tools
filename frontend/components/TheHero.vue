@@ -6,27 +6,30 @@
       Explore
       <span class="text-neon">Tech Stack</span> Tools
     </h1>
-    <div class="py-4">
+    <div class="py-4 space-y-2">
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
-        Discover our curated list of devtools to supercharge your next project.
-      </p>
-      <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
-        Created by @xiaoluoboding
+        Discover our curated list of devtools to
+        <span class="text-neon">supercharge</span> your next project. Subscribe
+        our Front-end Tech Stack Weekly
+        <span class="text-neon">newsletters</span>, Join 500+ readers.
       </p>
     </div>
-    <div class="max-w-xl mt-4 text-left">
+    <div class="max-w-xl mt-4 text-left space-x-4">
+      <a :href="GITHUB_ISSUE_URL" rel="noopener" target="_blank" class="btn-lg">
+        <UnoIcon class="i-carbon-logo-github text-xl" /> Contribute on GitHub
+      </a>
       <a
-        :href="GITHUB_ISSUE_URL"
+        :href="NEWSLETTERS_URL"
         rel="noopener"
         target="_blank"
-        class="text-base font-semibold items-center py-4 px-8 text-secondary-darker dark:text-white bg-gray-500 bg-opacity-10 hover:bg-opacity-20 rounded-lg inline-flex gap-3"
+        class="btn-secondary-lg"
       >
-        <UnoIcon class="i-carbon-logo-github text-xl" /> Contribute on GitHub
+        <UnoIcon class="i-carbon-email text-xl" /> Subscribe newsletters
       </a>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { GITHUB_ISSUE_URL } from '@/composables/constants'
+import { GITHUB_ISSUE_URL, NEWSLETTERS_URL } from '@/composables/constants'
 </script>

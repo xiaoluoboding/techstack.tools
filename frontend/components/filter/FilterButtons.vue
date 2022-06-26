@@ -22,15 +22,16 @@
         }"
         @click="$emit('toggle', item.name)"
       >
-        <div class="overflow-hidden truncate">
-          {{ item.name }} ({{ item.counts }})
+        <div class="overflow-hidden flex justify-between w-full">
+          <div class="truncate">{{ item.name }}</div>
+          <div>({{ item.counts }})</div>
         </div>
         <slot name="badge" v-bind="item" />
         <div class="flex-auto" />
-        <UnoIcon
+        <!-- <UnoIcon
           v-if="selectedItem === item.name"
           class="flex-none i-carbon-checkmark"
-        />
+        /> -->
       </button>
     </div>
   </div>
