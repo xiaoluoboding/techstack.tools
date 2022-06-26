@@ -68,6 +68,13 @@
     </div>
 
     <div
+      class="w-full mx-auto h-[60vh] flex items-center justify-center"
+      v-if="isLoadingBookmark"
+    >
+      <LoadingSpinner />
+    </div>
+    <div
+      v-else
       class="w-full max-w-390 px-4 mx-auto mt-16 pt-8 grid grid-cols-1 lg:grid-cols-[18em_1fr] gap-4"
     >
       <!-- Sidebar -->
@@ -248,6 +255,7 @@ const sortBy = ref('desc')
 const isDrawerOpen = ref(false)
 const selectedCategory = ref<string | null>()
 const pageCount = ref(1)
+const isLoadingBookmark = ref(false)
 const selectedBackground = `bg-gradient-to-br from-pink-300 via-violet-300 to-indigo-400`
 
 const categoriesList = computed(() => bookmarkStore.bookmarkTagList)
@@ -390,11 +398,13 @@ const handleShareToTwitter = async (url: string) => {
 }
 
 onMounted(async () => {
+  isLoadingBookmark.value = true
   await loginAsGuest()
 
   await fetchNotionDatabase()
 
   await initBookmarkList()
+  isLoadingBookmark.value = false
 })
 </script>
 
