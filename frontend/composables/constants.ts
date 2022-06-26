@@ -30,4 +30,8 @@ export const GITHUB_ISSUE_URL =
 
 export const NEWSLETTERS_URL = 'https://www.getrevue.co/profile/xiaoluoboding'
 
+export const BOOKMARK_STYLE_URL = 'https://www.bookmark.style/?url='
+
+export const TWITTER_SHARE_URL = 'https://twitter.com/intent/tweet?'
+
 export const PAGE_SIZE = 30

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="lg:sticky top-24 z-10">
     <h2 class="text-3xl font-extrabold text-primary">
       {{ title }}
     </h2>

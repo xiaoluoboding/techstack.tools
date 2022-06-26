@@ -177,6 +177,33 @@
                 :class="selectedBackground"
               />
             </BookmarkCard>
+            <div class="space-x-4 flex justify-end mt-2">
+              <!-- <div class="flex items-center">
+                <a class="text-sm font-bold" href="#">
+                  <carbon:link class="h-5 w-5" />
+                </a>
+              </div> -->
+              <div class="flex items-center">
+                <a
+                  class="text-lg font-bold"
+                  href="#"
+                  @click="handleShareToTwitter(card.link)"
+                >
+                  <carbon:logo-twitter class="h-5 w-5 text-sky-500" />
+                </a>
+              </div>
+              <div class="flex items-center">
+                <a
+                  class="text-lg font-bold"
+                  :href="`${BOOKMARK_STYLE_URL}${encodeURIComponent(
+                    card.link
+                  )}`"
+                  target="_blank"
+                >
+                  <img src="/bookmark-logo.svg" class="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -187,7 +214,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
 import Fuse from 'fuse.js/dist/fuse.basic.esm'
 
@@ -197,7 +224,12 @@ import { useNotionStore } from '@/stores/notion'
 import { useBookmarkStore } from '@/stores/bookmark'
 
 import { login, getUserInfo, getBookmarkList } from '@/services'
-import { GITHUB_ISSUE_URL, PAGE_SIZE } from '@/composables/constants'
+import {
+  GITHUB_ISSUE_URL,
+  PAGE_SIZE,
+  BOOKMARK_STYLE_URL,
+  TWITTER_SHARE_URL
+} from '@/composables/constants'
 
 const globalStore = useGlobalState()
 const userStore = useUserStore()
@@ -216,7 +248,7 @@ const sortBy = ref('desc')
 const isDrawerOpen = ref(false)
 const selectedCategory = ref<string | null>()
 const pageCount = ref(1)
-const selectedBackground = `bg-gradient-to-br from-green-300 via-blue-500 to-purple-600`
+const selectedBackground = `bg-gradient-to-br from-pink-300 via-violet-300 to-indigo-400`
 
 const categoriesList = computed(() => bookmarkStore.bookmarkTagList)
 
@@ -340,6 +372,21 @@ function syncURL() {
   }
 
   window.history.pushState('', '', `${url}${query}`)
+}
+
+const handleShareToTwitter = async (url: string) => {
+  const host = encodeURIComponent(window.location.href)
+  let text = encodeURIComponent(
+    `Found a valuable tool for developers、creators from ${host}. Check it out! `
+  )
+  text += encodeURIComponent(`#webdev #tools `)
+  const tweetShareLink = `${TWITTER_SHARE_URL}text=${text}%0A&via=TechStackTools&url=${encodeURIComponent(
+    url
+  )}`
+  const link = document.createElement('a')
+  link.href = tweetShareLink
+  link.target = '_blank'
+  link.click()
 }
 
 onMounted(async () => {
