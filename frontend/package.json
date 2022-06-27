@@ -4,7 +4,8 @@
     "dev": "nuxt dev --port 6336",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "serve": "esno .output/server/index.mjs"
   },
   "devDependencies": {
     "@iconify/json": "^2.1.67",
@@ -12,6 +13,7 @@
     "@pinia/nuxt": "^0.1.9",
     "@unocss/nuxt": "^0.39.3",
     "@vueuse/nuxt": "^8.7.4",
+    "esno": "^0.16.3",
     "nuxt": "3.0.0-rc.4",
     "unplugin-icons": "^0.14.5",
     "unplugin-vue-components": "^0.19.9"

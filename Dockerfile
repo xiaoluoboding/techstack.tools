@@ -6,6 +6,10 @@ COPY ./frontend/ .
 
 RUN yarn
 RUN yarn build
+
+COPY --from=frontend /frontend-build/.output/server /usr/local/sha/frontend/server
+RUN yarn serve
+
 RUN yarn generate
 
 # Build backend exec file.
