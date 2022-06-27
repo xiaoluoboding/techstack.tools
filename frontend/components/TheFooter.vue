@@ -38,7 +38,7 @@
           <ul class="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
             <li>
               <a
-                href="/"
+                href="https://twitter.com/xiaoluoboding"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="text-violet-700 transition hover:text-violet-700/75"
@@ -59,7 +59,7 @@
 
             <li>
               <a
-                href="/"
+                href="https://github.com/xiaoluoboding"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="text-violet-700 transition hover:text-violet-700/75"
@@ -93,7 +93,7 @@
                 <li>
                   <a
                     class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
+                    href="https://xiaoluoboding.github.io/monthly/"
                   >
                     <carbon:book /> <span>Predecessor Story</span>
                   </a>
@@ -182,41 +182,35 @@
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
+                    class="flex space-x-2 text-gray-700 transition hover:text-teal-500"
+                    href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5OTY2MjAwNg==&action=getalbum&album_id=2319237207234134019&scene=173&from_msgid=2247487927&from_itemidx=1&count=3&nolastread=1#wechat_redirect"
                   >
-                    公众号专栏
+                    <ri:wechat-2-fill />
+                    <span>公众号专栏</span>
                   </a>
                 </li>
 
                 <li>
                   <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
+                    class="flex space-x-2 text-gray-700 transition hover:text-violet-500"
+                    href="https://fe-share-weekly.zhubai.love/"
                   >
-                    竹白专栏
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
-                  >
-                    Monthly
+                    <carbon:email />
+                    <span>竹白专栏</span>
                   </a>
                 </li>
 
                 <li>
                   <a
                     class="flex group justify-center gap-1.5 sm:justify-start"
-                    href="/"
+                    href="https://www.getrevue.co/profile/xiaoluoboding"
                   >
-                    <span
-                      class="text-gray-700 transition group-hover:text-gray-700/75"
+                    <div
+                      class="flex space-x-2 text-gray-700 transition group-hover:text-blue-500"
                     >
-                      Twitter Newsletter
-                    </span>
+                      <carbon:logo-twitter />
+                      <span>Twitter Newsletter</span>
+                    </div>
 
                     <span class="relative flex w-2 h-2 -mr-2">
                       <span
@@ -239,7 +233,7 @@
               <li>
                 <a
                   class="flex items-center justify-center gap-1.5 sm:justify-start"
-                  href="/"
+                  :href="GITHUB_ISSUE_URL"
                 >
                   <carbon:idea />
 
@@ -250,7 +244,7 @@
               <li>
                 <a
                   class="flex items-center justify-center gap-1.5 sm:justify-start"
-                  href="/"
+                  :href="GITHUB_ISSUE_URL"
                 >
                   <carbon:logo-github />
 
@@ -278,7 +272,7 @@
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
-              href="/"
+              :href="/"
             >
               Privacy Policy
             </a>
@@ -292,3 +286,7 @@
     </div>
   </footer>
 </template>
+
+<script lang="ts" setup>
+import { GITHUB_ISSUE_URL } from '@/composables/constants'
+</script>

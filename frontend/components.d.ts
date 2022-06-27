@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
     'Carbon:chevronLeft': typeof import('~icons/carbon/chevron-left')['default']
     'Carbon:chevronRight': typeof import('~icons/carbon/chevron-right')['default']
     'Carbon:close': typeof import('~icons/carbon/close')['default']
-    'Carbon:edit': typeof import('~icons/carbon/edit')['default']
     'Carbon:email': typeof import('~icons/carbon/email')['default']
     'Carbon:filterRemove': typeof import('~icons/carbon/filter-remove')['default']
     'Carbon:idea': typeof import('~icons/carbon/idea')['default']
@@ -29,6 +28,7 @@ declare module '@vue/runtime-core' {
     'Mdi:chevronDoubleRight': typeof import('~icons/mdi/chevron-double-right')['default']
     'Mdi:qrcodePlus': typeof import('~icons/mdi/qrcode-plus')['default']
     'Mdi:qrcodeRemove': typeof import('~icons/mdi/qrcode-remove')['default']
+    'Ri:wechat2Fill': typeof import('~icons/ri/wechat2-fill')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

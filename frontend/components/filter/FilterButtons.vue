@@ -8,7 +8,7 @@
     </p>
 
     <div
-      class="grid grid-cols-1 gap-x-4 gap-y-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center"
+      class="grid grid-cols-1 gap-x-4 gap-y-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center max-h-[1024px]"
     >
       <button
         v-for="item of items"
