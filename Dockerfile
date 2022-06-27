@@ -6,6 +6,7 @@ COPY ./frontend/ .
 
 RUN yarn
 RUN yarn build
+RUN yarn generate
 
 # Build backend exec file.
 FROM golang:1.16.12-alpine3.15 AS backend
