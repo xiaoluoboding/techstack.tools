@@ -7,7 +7,7 @@ COPY ./frontend/ .
 RUN yarn
 RUN yarn build
 
-COPY --from=frontend /frontend-build/.output/server /frontend-build/dist/server
+COPY /frontend-build/.output/server /frontend-build/dist/server
 RUN yarn serve
 
 RUN yarn generate
