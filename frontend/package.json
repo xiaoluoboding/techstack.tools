@@ -5,7 +5,7 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "serve": "esno .output/server/index.mjs"
+    "serve": "esno dist/server/index.mjs"
   },
   "devDependencies": {
     "@iconify/json": "^2.1.67",

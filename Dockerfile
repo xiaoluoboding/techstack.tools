@@ -7,7 +7,7 @@ COPY ./frontend/ .
 RUN yarn
 RUN yarn build
 
-COPY --from=frontend /frontend-build/.output/server /usr/local/sha/frontend/server
+COPY --from=frontend /frontend-build/.output/server /frontend-build/dist/server
 RUN yarn serve
 
 RUN yarn generate
@@ -30,6 +30,7 @@ WORKDIR /usr/local/sha
 
 COPY --from=backend /backend-build/sha /usr/local/sha/
 COPY --from=frontend /frontend-build/.output/public /usr/local/sha/frontend/dist
+COPY --from=frontend /frontend-build/dist/server /usr/local/sha/frontend/dist
 
 # Directory to store the data, which can be referenced as the mounting point.
 RUN mkdir -p /var/opt/sha
