@@ -1,6 +1,6 @@
 <template>
   <div class="lg:sticky top-24 z-10">
-    <h2 class="text-3xl font-extrabold text-primary">
+    <h2 class="text-3xl font-extrabold text-primary" id="#">
       {{ title }}
     </h2>
     <p v-if="subtitle" class="text-sm text-gray-700 dark:text-gray-300 mb-1">
@@ -10,9 +10,8 @@
     <div
       class="grid grid-cols-1 gap-x-4 gap-y-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center"
     >
-      <a
+      <button
         v-for="item of items"
-        href="#"
         :key="item.id"
         type="button"
         :aria-label="item.name"
@@ -21,7 +20,7 @@
           'border-violet-500 bg-violet-100 dark:bg-violet-500 dark:border-violet-300':
             selectedItem === item.name
         }"
-        @click="$emit('toggle', item.name)"
+        @click="handleSelect(item)"
       >
         <div class="overflow-hidden flex justify-between w-full">
           <div class="truncate">{{ item.name }}</div>
@@ -33,12 +32,14 @@
           v-if="selectedItem === item.name"
           class="flex-none i-carbon-checkmark"
         /> -->
-      </a>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useScrollToTop } from '@/composables/useScrollToTop'
+
 interface Item {
   id: string
   name: string
@@ -52,4 +53,13 @@ defineProps<{
   items: Item[]
   selectedItem?: string | null
 }>()
+
+const emit = defineEmits<{ (e: 'toggle', any): void }>()
+
+const { scrollToTop } = useScrollToTop()
+
+const handleSelect = (item) => {
+  scrollToTop()
+  emit('toggle', item.name)
+}
 </script>

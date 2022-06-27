@@ -34,4 +34,4 @@ export const BOOKMARK_STYLE_URL = 'https://www.bookmark.style/?url='
 
 export const TWITTER_SHARE_URL = 'https://twitter.com/intent/tweet?'
 
-export const PAGE_SIZE = 30
+export const PAGE_SIZE = 12

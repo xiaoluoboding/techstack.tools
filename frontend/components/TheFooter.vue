@@ -6,7 +6,7 @@
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
           <div class="flex justify-center text-violet-500 sm:justify-start">
-            <svg
+            <!-- <svg
               id="logo-35"
               width="50"
               height="39"
@@ -24,7 +24,8 @@
                 class="ccustom"
                 fill="#312ECB"
               ></path>
-            </svg>
+            </svg> -->
+            TechStack.Tools
           </div>
 
           <p
@@ -91,19 +92,39 @@
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
+                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
                     href="/"
                   >
-                    Predecessor
+                    <carbon:book /> <span>Predecessor Story</span>
                   </a>
                 </li>
 
                 <li>
                   <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
+                    class="flex space-x-2 text-gray-700 hover:text-blue-500 transition"
+                    href="https://twitter.com/xiaoluoboding"
                   >
-                    xiaoluoboding
+                    <carbon:logo-twitter />
+                    <span>Follow me on Twitter</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
+                    href="https://www.buymeacoffee.com/xlbd"
+                  >
+                    <carbon:cafe />
+                    <span>Buy me a coffee</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://github.com/sponsors/xiaoluoboding"
+                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
+                  >
+                    <carbon:logo-github /> <span>Sponsor me on GitHub</span>
                   </a>
                 </li>
               </ul>
@@ -220,7 +241,7 @@
                   class="flex items-center justify-center gap-1.5 sm:justify-start"
                   href="/"
                 >
-                  <carbon:add />
+                  <carbon:idea />
 
                   <span class="text-gray-700">Suggest a Change</span>
                 </a>

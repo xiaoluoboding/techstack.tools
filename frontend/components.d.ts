@@ -6,11 +6,15 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'Carbon:add': typeof import('~icons/carbon/add')['default']
+    'Carbon:book': typeof import('~icons/carbon/book')['default']
+    'Carbon:cafe': typeof import('~icons/carbon/cafe')['default']
     'Carbon:chevronLeft': typeof import('~icons/carbon/chevron-left')['default']
     'Carbon:chevronRight': typeof import('~icons/carbon/chevron-right')['default']
     'Carbon:close': typeof import('~icons/carbon/close')['default']
+    'Carbon:edit': typeof import('~icons/carbon/edit')['default']
     'Carbon:email': typeof import('~icons/carbon/email')['default']
     'Carbon:filterRemove': typeof import('~icons/carbon/filter-remove')['default']
+    'Carbon:idea': typeof import('~icons/carbon/idea')['default']
     'Carbon:imageReference': typeof import('~icons/carbon/image-reference')['default']
     'Carbon:logoGithub': typeof import('~icons/carbon/logo-github')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']

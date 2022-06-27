@@ -1,28 +1,25 @@
 <template>
   <ol class="flex justify-center space-x-1 font-medium">
     <li>
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handlePrev"
       >
         <carbon:chevron-left />
-      </a>
+      </button>
     </li>
 
     <li v-if="activePage > 4 && pages > 7">
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handleChangePage(1)"
       >
         1
-      </a>
+      </button>
     </li>
 
     <li v-if="activePage > 4 && pages > 7">
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handlePrevByStep"
         @mouseenter="leftEnter = true"
@@ -30,25 +27,25 @@
       >
         <mdi:chevron-double-left v-if="leftEnter" />
         <carbon:overflow-menu-horizontal v-else />
-      </a>
+      </button>
     </li>
 
     <template v-for="item in pageRange">
       <li>
-        <a
-          href="#"
+        <button
           class="block w-8 h-8 leading-8 text-center rounded"
-          :class="{ 'border-violet-500 bg-violet-500': activePage === item }"
+          :class="{
+            'border-violet-500 bg-violet-500 text-white': activePage === item
+          }"
           @click="handleChangePage(item)"
         >
           {{ item }}
-        </a>
+        </button>
       </li>
     </template>
 
     <li v-if="activePage < pages - STEP + 1">
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handleNextByStep"
         @mouseenter="rightEnter = true"
@@ -56,33 +53,31 @@
       >
         <mdi:chevron-double-right v-if="rightEnter" />
         <carbon:overflow-menu-horizontal v-else />
-      </a>
+      </button>
     </li>
 
     <li v-if="activePage < pages - STEP + 1">
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handleChangePage(pages)"
       >
         {{ pages }}
-      </a>
+      </button>
     </li>
 
     <li>
-      <a
-        href="#"
+      <button
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handleNext"
       >
         <carbon:chevron-right />
-      </a>
+      </button>
     </li>
   </ol>
 </template>
 
 <script lang="ts" setup>
-import { totalmem } from 'os'
+import { useScrollToTop } from '@/composables/useScrollToTop'
 
 const props = defineProps({
   total: {
@@ -96,6 +91,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits<{ (e: 'change', number): void }>()
+
+const { scrollToTop } = useScrollToTop()
 
 const STEP = 5
 
@@ -121,16 +118,15 @@ const pageRange = computed(() => {
 const handleChangePage = (item) => {
   activePage.value = item
   emit('change', activePage.value)
+  scrollToTop()
 }
 
 const handleNext = () => {
-  activePage.value = Math.min(pages.value, activePage.value + 1)
-  emit('change', activePage.value)
+  return handleChangePage(Math.min(pages.value, activePage.value + 1))
 }
 
 const handlePrev = () => {
-  activePage.value = Math.max(1, activePage.value - 1)
-  emit('change', activePage.value)
+  handleChangePage(Math.max(1, activePage.value - 1))
 }
 
 const handlePrevByStep = () => {
@@ -149,8 +145,7 @@ const handleNextByStep = () => {
 watch(
   () => props.total,
   (newVal) => {
-    activePage.value = 1
-    emit('change', activePage.value)
+    handleChangePage(1)
   }
 )
 </script>
