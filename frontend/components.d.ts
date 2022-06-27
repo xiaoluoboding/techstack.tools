@@ -9,7 +9,6 @@ declare module '@vue/runtime-core' {
     'Carbon:close': typeof import('~icons/carbon/close')['default']
     'Carbon:email': typeof import('~icons/carbon/email')['default']
     'Carbon:filterRemove': typeof import('~icons/carbon/filter-remove')['default']
-    'Carbon:link': typeof import('~icons/carbon/link')['default']
     'Carbon:logoGithub': typeof import('~icons/carbon/logo-github')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
     'Carbon:menu': typeof import('~icons/carbon/menu')['default']

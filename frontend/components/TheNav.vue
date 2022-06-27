@@ -44,12 +44,21 @@
         <carbon:moon v-if="isDark" />
         <carbon:sun v-else />
       </button>
-      <button class="btn-secondary" data-trick="Gotcha you">
+      <button
+        class="btn-secondary"
+        data-trick="Gotcha you"
+        @click="isShowNotify = true"
+      >
         Collect Wallet
       </button>
     </div>
     <slot name="tail" />
   </div>
+  <TheNotify
+    msg="😜 Gotcha You! This site is not a Web3 App."
+    v-model:visible="isShowNotify"
+    @close="isShowNotify = false"
+  />
 </template>
 
 <script setup lang="ts">
@@ -60,6 +69,8 @@ const { isDark, toggleDark } = useDark()
 const globalState = useGlobalState()
 
 const isSearchOpen = ref(false)
+const isShowNotify = ref(false)
+
 const isShowQRCode = computed(() => globalState.isShowQRCode)
 const toggleSearch = () => {}
 
