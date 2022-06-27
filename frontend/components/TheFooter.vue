@@ -272,7 +272,7 @@
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
-              :href="/"
+              href="/"
             >
               Privacy Policy
             </a>
