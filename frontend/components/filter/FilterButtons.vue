@@ -10,8 +10,9 @@
     <div
       class="grid grid-cols-1 gap-x-4 gap-y-2 py-4 overflow-x-auto sm:flex-wrap sm:justify-center"
     >
-      <button
+      <a
         v-for="item of items"
+        href="#"
         :key="item.id"
         type="button"
         :aria-label="item.name"
@@ -32,7 +33,7 @@
           v-if="selectedItem === item.name"
           class="flex-none i-carbon-checkmark"
         /> -->
-      </button>
+      </a>
     </div>
   </div>
 </template>

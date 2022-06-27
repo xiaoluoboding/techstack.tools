@@ -11,7 +11,7 @@
 
     <div class="flex gap-6 items-center">
       <NuxtLink to="/about">Weekly</NuxtLink>
-      <NuxtLink to="/about">Newsletters</NuxtLink>
+      <NuxtLink to="/about">Collection</NuxtLink>
       <NuxtLink to="/about">About</NuxtLink>
       <button
         aria-label="Search"

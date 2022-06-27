@@ -12,8 +12,8 @@
         <span class="text-neon">supercharge</span> your next project.
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
-        Subscribe our Front-end Tech Stack Weekly
-        <span class="text-neon">newsletters</span>, Join 500+ readers.
+        Subscribe our front-end tech stack
+        <span class="text-neon">weekly</span>, Join 500+ readers.
       </p>
     </div>
     <div class="max-w-xl mt-4 text-left space-x-4">

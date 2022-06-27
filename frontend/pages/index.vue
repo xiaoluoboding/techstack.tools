@@ -136,7 +136,7 @@
               target="_blank"
             >
               <carbon:add class="h-6 w-6" />
-              <span>Add Your Tools</span>
+              <span>Suggest a Change</span>
             </a>
           </div>
         </div>
@@ -185,11 +185,11 @@
               />
             </BookmarkCard>
             <div class="space-x-4 flex justify-end mt-2">
-              <!-- <div class="flex items-center">
+              <div class="flex items-center">
                 <a class="text-sm font-bold" href="#">
-                  <carbon:link class="h-5 w-5" />
+                  <carbon:image-reference class="h-5 w-5" />
                 </a>
-              </div> -->
+              </div>
               <div class="flex items-center">
                 <a
                   class="text-lg font-bold"
@@ -214,10 +214,17 @@
           </div>
         </div>
 
-        <Pagination class="w-full mt-10" />
+        <Pagination
+          class="w-full mt-10"
+          v-if="filterdBookmarkList.length > PAGE_SIZE"
+          :total="filterdBookmarkList.length"
+          :page-size="PAGE_SIZE"
+          @change="(val) => (pageCount = val)"
+        />
       </main>
     </div>
   </div>
+  <TheFooter />
 </template>
 
 <script lang="ts" setup>
