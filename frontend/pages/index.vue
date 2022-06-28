@@ -197,17 +197,12 @@
             </BookmarkCard>
             <div class="space-x-4 flex justify-end mt-2">
               <div class="flex items-center">
-                <a class="text-sm font-bold hover:text-violet-500" href="#">
-                  <mdi:image-refresh-outline class="h-5 w-5" />
-                </a>
-              </div>
-              <div class="flex items-center">
                 <a
                   class="text-lg font-bold"
                   href="#"
                   @click="handleShareToTwitter(card.link)"
                 >
-                  <carbon:logo-twitter class="h-5 w-5 text-sky-500" />
+                  <img src="/twitter-logo.svg" class="h-5 w-5" />
                 </a>
               </div>
               <div class="flex items-center">
@@ -260,6 +255,7 @@ const globalStore = useGlobalStore()
 const userStore = useUserStore()
 const notionStore = useNotionStore()
 const bookmarkStore = useBookmarkStore()
+const route = useRoute()
 
 const fuseOptions = {
   threshold: 0.1,
@@ -275,6 +271,7 @@ const selectedCategory = ref<string | null>()
 const pageCount = ref(1)
 const isLoadingBookmark = ref(false)
 const newsletterWeeks = ref(0)
+const isReloadBookmark = ref(false)
 const selectedBackground = `bg-gradient-to-br from-pink-300 via-violet-300 to-indigo-400`
 
 const categoriesList = computed(() => bookmarkStore.bookmarkTagList)
@@ -373,8 +370,6 @@ const fetchNotionDatabase = async () => {
 
 watch([q, orderBy, sortBy, selectedCategory], syncURL, { deep: true })
 
-const route = useRoute()
-
 function syncURL() {
   const url = route.path
   const queries = []
@@ -416,6 +411,13 @@ const handleShareToTwitter = async (url: string) => {
 
 const toggleQRCode = () => {
   globalStore.setGlobalState({ isShowQRCode: !globalStore.isShowQRCode })
+}
+
+const handleRefreshBookmark = () => {
+  isReloadBookmark.value = true
+  nextTick(() => {
+    isReloadBookmark.value = false
+  })
 }
 
 onMounted(async () => {

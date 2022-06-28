@@ -19,7 +19,7 @@
           <ul class="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
             <li>
               <a
-                href="https://twitter.com/xiaoluoboding"
+                href="https://twitter.com/TechStackTools"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="text-violet-700 transition hover:text-violet-700/75"
@@ -40,7 +40,7 @@
 
             <li>
               <a
-                href="https://github.com/xiaoluoboding"
+                href="https://github.com/xiaoluoboding/tech-stack.tools"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="text-violet-700 transition hover:text-violet-700/75"
@@ -92,7 +92,7 @@
 
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
+                    class="flex space-x-2 text-gray-700 transition hover:text-amber-900/75"
                     href="https://www.buymeacoffee.com/xlbd"
                   >
                     <carbon:cafe />
@@ -229,7 +229,7 @@
                 >
                   <carbon:tools-alt />
 
-                  <span class="text-gray-700">Suggest a Feature</span>
+                  <span class="text-gray-700">Request a Feature</span>
                 </a>
               </li>
             </ul>

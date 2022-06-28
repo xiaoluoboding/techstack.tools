@@ -164,7 +164,11 @@ const props = defineProps({
   /**
    * whether bookmark card is show qrcode
    */
-  qrcode: { type: Boolean, default: true }
+  qrcode: { type: Boolean, default: true },
+  /**
+   * whether bookmark card is reload
+   */
+  reload: { type: Boolean, default: false }
 })
 
 const isLoading = ref(false)
@@ -181,24 +185,7 @@ const metaData = reactive<MetaData>({
 const init = async () => {
   isLoading.value = true
 
-  // const { data } = (await axios.get(`${API_PREFIX}${props.url}`)) as {
-  //   data: MetaData
-  // }
-  // fetch data from server/api
-  // const { data } = await useAsyncData('/api/metafy', () => {
-  //   return $fetch('/api/metafy', { params: { url: props.url } })
-  // })
-
   if (props.meta) {
-    // let base64Image = ''
-    // if (props.meta?.image) {
-    //   try {
-    //     base64Image = await getBase64Image(props.meta.image)
-    //   } catch (error) {
-    //     console.log(`Oops, something went wrong: Maybe caused by CORS!!!`)
-    //   }
-    // }
-
     metaData.title = props.meta.title
     metaData.description = props.meta.description
     metaData.link = props.meta.link
@@ -214,6 +201,26 @@ const init = async () => {
     metaData.logo = 'https://bookmark.style/favicon.svg'
     metaData.title = 'bookmark.style: stylish your visual web bookmark'
     metaData.link = props.url
+  }
+
+  isLoading.value = false
+}
+
+const loadMeta = async () => {
+  isLoading.value = true
+
+  const { data } = (await axios.get(`${API_PREFIX}${props.meta.link}`)) as {
+    data: MetaData
+  }
+
+  if (data) {
+    metaData.title = data.title
+    metaData.description = data.description
+    metaData.link = data.link
+    metaData.image = data.image
+    metaData.logo = data.logo
+    metaData.author = data.author
+    metaData.publisher = data.publisher
   }
 
   isLoading.value = false
@@ -242,6 +249,16 @@ watch(
     }
   },
   { deep: true, immediate: true }
+)
+
+watch(
+  () => props.reload,
+  async (newVal) => {
+    if (newVal) {
+      await loadMeta()
+    }
+  },
+  { deep: true }
 )
 </script>
 
