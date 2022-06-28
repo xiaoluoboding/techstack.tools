@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoluoboding/self-hosted-starter.git"
+    "url": "git+https://github.com/xiaoluoboding/tech-stack.tools.git"
   },
   "author": "xiaoluoboding",
   "license": "MIT",
@@ -27,10 +27,7 @@
     "vitepress"
   ],
   "bugs": {
-    "url": "https://github.com/xiaoluoboding/self-hosted-starter/issues"
+    "url": "https://github.com/xiaoluoboding/tech-stack.tools/issues"
   },
-  "homepage": "https://github.com/xiaoluoboding/self-hosted-starter#readme",
-  "devDependencies": {
-    "vitepress": "^0.22.4"
-  }
+  "homepage": "https://github.com/xiaoluoboding/tech-stack.tools#readme"
 }
