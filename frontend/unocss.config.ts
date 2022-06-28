@@ -3,7 +3,8 @@ import {
   defineConfig,
   presetAttributify,
   presetUno,
-  presetWebFonts
+  presetWebFonts,
+  presetTypography
 } from 'unocss'
 
 export default defineConfig<UnocssNuxtOptions>({
@@ -18,7 +19,8 @@ export default defineConfig<UnocssNuxtOptions>({
         serif: 'DM Serif Display',
         mono: 'DM Mono'
       }
-    })
+    }),
+    presetTypography({})
   ],
   shortcuts: {
     'flex-center': 'flex justify-center items-center',

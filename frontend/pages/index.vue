@@ -105,6 +105,26 @@
       <main class="mx-auto w-full z-10">
         <!-- The Tool Bar -->
         <div class="h-10 mt-5 mb-2 flex items-center gap-1 justify-between">
+          <GlobalSearch ref="searchEl" v-model:search="q" />
+
+          <!-- Action -->
+          <div class="flex items-center flex-1">
+            <a
+              class="btn"
+              :href="GITHUB_ISSUE_URL"
+              rel="noopener"
+              target="_blank"
+            >
+              <carbon:add class="h-6 w-6" />
+              <span>Suggest a Change</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sorter -->
+        <div
+          class="grid grid-cols-3 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
+        >
           <!-- Filter -->
           <div v-if="displayFiltersBlock" class="flex items-center space-x-2">
             <div>Filter{{ filtersCount > 1 ? 's' : '' }}</div>
@@ -128,24 +148,9 @@
           </div>
           <div v-else></div>
 
-          <div class="flex items-center flex-1">
-            <a
-              class="btn"
-              :href="GITHUB_ISSUE_URL"
-              rel="noopener"
-              target="_blank"
-            >
-              <carbon:add class="h-6 w-6" />
-              <span>Suggest a Change</span>
-            </a>
-          </div>
-        </div>
+          <div></div>
 
-        <!-- Sorter -->
-        <div
-          class="grid grid-cols-3 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
-        >
-          <div class="flex space-x-2 items-center">
+          <div class="flex space-x-2 items-center justify-end">
             <label>
               <span class="font-black text-3xl">
                 {{ filterdBookmarkList.length }}
@@ -156,9 +161,7 @@
             </label>
           </div>
 
-          <GlobalSearch ref="searchEl" v-model:search="q" />
-
-          <TheOrderBy
+          <!-- <TheOrderBy
             class="flex justify-end"
             v-if="!q"
             :order-by="orderBy"
@@ -166,7 +169,7 @@
             @update:order-by="(v) => (orderBy = v)"
             @update:sort-by="(v) => (sortBy = v)"
           />
-          <div v-else></div>
+          <div v-else></div> -->
         </div>
 
         <!-- Bookmark Card -->
@@ -186,8 +189,8 @@
             </BookmarkCard>
             <div class="space-x-4 flex justify-end mt-2">
               <div class="flex items-center">
-                <a class="text-sm font-bold" href="#">
-                  <carbon:image-reference class="h-5 w-5" />
+                <a class="text-sm font-bold hover:text-violet-500" href="#">
+                  <mdi:image-refresh-outline class="h-5 w-5" />
                 </a>
               </div>
               <div class="flex items-center">
@@ -372,12 +375,12 @@ function syncURL() {
   if (q.value) {
     queries.push(`q=${q.value}`)
   }
-  if (orderBy.value !== 'downloads') {
-    queries.push(`orderBy=${orderBy.value}`)
-  }
-  if (sortBy.value !== 'desc') {
-    queries.push(`sortBy=${sortBy.value}`)
-  }
+  // if (orderBy.value !== 'createdAt') {
+  //   queries.push(`orderBy=${orderBy.value}`)
+  // }
+  // if (sortBy.value !== 'desc') {
+  //   queries.push(`sortBy=${sortBy.value}`)
+  // }
   if (selectedCategory.value) {
     queries.push(`category=${selectedCategory.value}`)
   }
@@ -392,7 +395,7 @@ function syncURL() {
 const handleShareToTwitter = async (url: string) => {
   const host = encodeURIComponent(window.location.href)
   let text = encodeURIComponent(
-    `Found a valuable tool for developers、creators from ${host}. Check it out! `
+    `Found a valuable tool for developers、creators from ${window.location.href}. Check it out! `
   )
   text += encodeURIComponent(`#webdev #tools `)
   const tweetShareLink = `${TWITTER_SHARE_URL}text=${text}%0A&via=TechStackTools&url=${encodeURIComponent(

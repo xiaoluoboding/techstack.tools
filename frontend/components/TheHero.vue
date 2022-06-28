@@ -12,6 +12,10 @@
         <span class="text-neon">supercharge</span> your next project.
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
+        We keep track of the most
+        <span class="text-neon">valuable</span> devtools, so you don't have to.
+      </p>
+      <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
         Subscribe our front-end tech stack
         <span class="text-neon">weekly</span>, Join 500+ readers.
       </p>

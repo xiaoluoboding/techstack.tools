@@ -31,8 +31,9 @@
           <p
             class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 sm:max-w-xs sm:mx-0 sm:text-left"
           >
-            Discover our curated list of devtools to
-            <em class="text-neon">supercharge</em> your next project.
+            We keep track of the most
+            <span class="text-neon">valuable</span> devtools, so you don't have
+            to.
           </p>
 
           <ul class="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
@@ -246,7 +247,7 @@
                   class="flex items-center justify-center gap-1.5 sm:justify-start"
                   :href="GITHUB_ISSUE_URL"
                 >
-                  <carbon:logo-github />
+                  <carbon:tools-alt />
 
                   <span class="text-gray-700">Suggest a Feature</span>
                 </a>
@@ -263,7 +264,7 @@
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
-              href="/"
+              href="/terms-of-services"
             >
               Terms & Conditions
             </a>
@@ -272,7 +273,7 @@
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
-              href="/"
+              href="/privacy-policy"
             >
               Privacy Policy
             </a>
