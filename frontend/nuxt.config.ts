@@ -51,7 +51,8 @@ export default defineNuxtConfig({
         content: `${url}/preview.png`
       },
       { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: title }
-    ]
+    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   modules: [

@@ -104,11 +104,19 @@
       <!-- The main -->
       <main class="mx-auto w-full z-10">
         <!-- The Tool Bar -->
-        <div class="h-10 mt-5 mb-2 flex items-center gap-1 justify-between">
+        <div class="h-10 mt-4 mb-4 flex items-center gap-1 justify-between">
           <GlobalSearch ref="searchEl" v-model:search="q" />
 
           <!-- Action -->
-          <div class="flex items-center flex-1">
+          <div class="flex items-center justify-end flex-1 space-x-4">
+            <button
+              aria-label="Toggle theme"
+              class="!outline-none text-xl h-1.2em my-auto"
+              @click="toggleQRCode()"
+            >
+              <mdi:qrcode-plus v-if="isShowQRCode" />
+              <mdi:qrcode-remove v-else />
+            </button>
             <a
               class="btn"
               :href="GITHUB_ISSUE_URL"
@@ -174,7 +182,7 @@
 
         <!-- Bookmark Card -->
         <div
-          class="grid sm:grid-cols-2 2xl:grid-cols-3 gap-6 place-items-center mt-8"
+          class="grid sm:grid-cols-2 2xl:grid-cols-3 gap-6 place-items-center mt-4"
         >
           <div v-for="card in paginatedBookmarkList" :key="card.id">
             <BookmarkCard
@@ -235,7 +243,7 @@ import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
 import Fuse from 'fuse.js/dist/fuse.basic.esm'
 
-import { useGlobalState } from '@/stores/global'
+import { useGlobalStore } from '@/stores/global'
 import { useUserStore } from '@/stores/user'
 import { useNotionStore } from '@/stores/notion'
 import { useBookmarkStore } from '@/stores/bookmark'
@@ -248,7 +256,7 @@ import {
   TWITTER_SHARE_URL
 } from '@/composables/constants'
 
-const globalStore = useGlobalState()
+const globalStore = useGlobalStore()
 const userStore = useUserStore()
 const notionStore = useNotionStore()
 const bookmarkStore = useBookmarkStore()
@@ -266,6 +274,7 @@ const isDrawerOpen = ref(false)
 const selectedCategory = ref<string | null>()
 const pageCount = ref(1)
 const isLoadingBookmark = ref(false)
+const newsletterWeeks = ref(0)
 const selectedBackground = `bg-gradient-to-br from-pink-300 via-violet-300 to-indigo-400`
 
 const categoriesList = computed(() => bookmarkStore.bookmarkTagList)
@@ -312,9 +321,7 @@ const filtersCount = computed(() => {
   return count
 })
 
-const newsletterWeeks = computed(() => {
-  return Math.round(dayjs().diff(dayjs('2021-11-25'), 'weeks', true))
-})
+const isShowQRCode = computed(() => globalStore.isShowQRCode)
 
 const loginAsGuest = async () => {
   await login('chris.damon@demo.com', '123456')
@@ -407,6 +414,10 @@ const handleShareToTwitter = async (url: string) => {
   link.click()
 }
 
+const toggleQRCode = () => {
+  globalStore.setGlobalState({ isShowQRCode: !globalStore.isShowQRCode })
+}
+
 onMounted(async () => {
   isLoadingBookmark.value = true
   await loginAsGuest()
@@ -414,6 +425,11 @@ onMounted(async () => {
   await fetchNotionDatabase()
 
   await initBookmarkList()
+
+  newsletterWeeks.value = Math.round(
+    dayjs().diff(dayjs('2021-11-25'), 'weeks', true)
+  )
+
   isLoadingBookmark.value = false
 })
 </script>

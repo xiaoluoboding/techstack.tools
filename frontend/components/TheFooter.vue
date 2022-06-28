@@ -6,34 +6,14 @@
       <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
         <div>
           <div class="flex justify-center text-violet-500 sm:justify-start">
-            <!-- <svg
-              id="logo-35"
-              width="50"
-              height="39"
-              viewBox="0 0 50 39"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-                class="ccompli1"
-                fill="#007AFF"
-              ></path>
-              <path
-                d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-                class="ccustom"
-                fill="#312ECB"
-              ></path>
-            </svg> -->
-            TechStack.Tools
+            <img src="/logo.svg" class="h-8" />
           </div>
 
           <p
             class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 sm:max-w-xs sm:mx-0 sm:text-left"
           >
-            We keep track of the most
-            <span class="text-neon">valuable</span> devtools, so you don't have
-            to.
+            Discover our curated list of devtools to
+            <span class="text-neon">supercharge</span> your next project.
           </p>
 
           <ul class="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
@@ -260,7 +240,9 @@
       <div class="pt-6 mt-12 border-t border-gray-100">
         <div class="text-center sm:flex sm:justify-between sm:text-left">
           <p class="text-sm text-gray-500">
-            <span class="block sm:inline">All rights reserved.</span>
+            <span class="block sm:inline">All rights reserved</span>
+
+            <span> | </span>
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
@@ -269,7 +251,7 @@
               Terms & Conditions
             </a>
 
-            <span>&middot;</span>
+            <span> | </span>
 
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"

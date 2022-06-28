@@ -5,14 +5,15 @@
     <slot name="head" />
     <div class="flex" :class="isSearchOpen ? 'hidden' : ''">
       <a href="/" class="inline-flex text-base lg:text-2xl">
-        <span class="my-auto ml-1 pt-0.5"> TechStack Tools </span>
+        <img class="my-auto h-6" src="/logo-dark.svg" v-if="isDark" />
+        <img class="my-auto h-6" src="/logo-light.svg" v-else />
       </a>
     </div>
 
     <div class="flex gap-6 items-center">
-      <NuxtLink to="/about">Weekly</NuxtLink>
-      <NuxtLink to="/about">Collection</NuxtLink>
-      <NuxtLink to="/about">About</NuxtLink>
+      <NuxtLink to="#" @click="isShowNotifyForCollection = true"
+        >Collection</NuxtLink
+      >
       <button
         aria-label="Search"
         class="block md:hidden !outline-none text-xl h-1.2em my-auto"
@@ -22,20 +23,13 @@
       </button>
       <a
         aria-label="GitHub"
-        class="!outline-none text-xl h-1.2em my-auto"
+        class="!outline-none text-xl h-1.2em my-auto hover:text-violet-300"
         href="https://github.com/xiaoluoboding/tech-stack.tools"
         target="_blank"
       >
         <carbon:logo-github />
       </a>
-      <button
-        aria-label="Toggle theme"
-        class="!outline-none text-xl h-1.2em my-auto"
-        @click="toggleQRCode()"
-      >
-        <mdi:qrcode-plus v-if="isShowQRCode" />
-        <mdi:qrcode-remove v-else />
-      </button>
+
       <button
         aria-label="Toggle theme"
         class="!outline-none text-xl h-1.2em my-auto"
@@ -59,22 +53,21 @@
     v-model:visible="isShowNotify"
     @close="isShowNotify = false"
   />
+  <TheNotify
+    msg="Collection feature will comming soon 🚀"
+    v-model:visible="isShowNotifyForCollection"
+    @close="isShowNotifyForCollection = false"
+  />
 </template>
 
 <script setup lang="ts">
 import { useDark } from '~/composables/useDark'
-import { useGlobalState } from '@/stores/global'
 
 const { isDark, toggleDark } = useDark()
-const globalState = useGlobalState()
 
 const isSearchOpen = ref(false)
 const isShowNotify = ref(false)
+const isShowNotifyForCollection = ref(false)
 
-const isShowQRCode = computed(() => globalState.isShowQRCode)
 const toggleSearch = () => {}
-
-const toggleQRCode = () => {
-  globalState.setGlobalState({ isShowQRCode: !globalState.isShowQRCode })
-}
 </script>
