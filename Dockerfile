@@ -1,18 +1,12 @@
 # Build frontend dist.
 FROM node:14.18.2-alpine3.14 AS frontend
-
-RUN npm i -g pnpm
-
 WORKDIR /frontend-build
-
-# Install build dependency (e.g. vite)
-COPY ./frontend/package.json ./frontend/pnpm-lock.yaml ./
-RUN pnpm install --shamefully-hoist --frozen-lockfile
 
 COPY ./frontend/ .
 
-RUN pnpm run build
-RUN pnpm run generate
+RUN yarn
+RUN yarn build
+RUN yarn generate
 
 # Build backend exec file.
 FROM golang:1.16.12-alpine3.15 AS backend
