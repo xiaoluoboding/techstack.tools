@@ -24,7 +24,6 @@ declare module '@vue/runtime-core' {
     'Carbon:toolsAlt': typeof import('~icons/carbon/tools-alt')['default']
     'Mdi:chevronDoubleLeft': typeof import('~icons/mdi/chevron-double-left')['default']
     'Mdi:chevronDoubleRight': typeof import('~icons/mdi/chevron-double-right')['default']
-    'Mdi:imageRefreshOutline': typeof import('~icons/mdi/image-refresh-outline')['default']
     'Mdi:qrcodePlus': typeof import('~icons/mdi/qrcode-plus')['default']
     'Mdi:qrcodeRemove': typeof import('~icons/mdi/qrcode-remove')['default']
     'Ri:wechat2Fill': typeof import('~icons/ri/wechat2-fill')['default']

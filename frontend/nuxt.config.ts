@@ -57,7 +57,7 @@ export default defineNuxtConfig({
       {
         async: true,
         defer: true,
-        'data-website-id': process.env.UMAMI_WEBSITE_ID,
+        'data-website-id': 'f1902438-519c-4acd-98d9-2a6f0de4f111',
         src: 'https://analytics.tech-stack.tools/umami.js'
       }
     ]
