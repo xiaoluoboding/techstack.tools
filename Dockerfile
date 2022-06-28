@@ -5,9 +5,12 @@ RUN npm i -g pnpm
 
 WORKDIR /frontend-build
 
+# Install build dependency (e.g. vite)
+COPY ./frontend/package.json ./frontend/pnpm-lock.yaml ./
+RUN pnpm install --shamefully-hoist --frozen-lockfile
+
 COPY ./frontend/ .
 
-RUN pnpm install --shamefully-hoist
 RUN pnpm run build
 RUN pnpm run generate
 
