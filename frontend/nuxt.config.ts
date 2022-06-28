@@ -52,7 +52,15 @@ export default defineNuxtConfig({
       },
       { hid: 'twitter:image:alt', name: 'twitter:image:alt', content: title }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        async: true,
+        defer: true,
+        'data-website-id': process.env.UMAMI_WEBSITE_ID,
+        src: 'https://analytics.tech-stack.tools/umami.js'
+      }
+    ]
   },
 
   modules: [
@@ -69,7 +77,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     NOTION_KEY: process.env.NOTION_KEY,
-    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID
+    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
+    UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
   },
 
   unocss: {
