@@ -5,8 +5,11 @@
     <slot name="head" />
     <div class="flex" :class="isSearchOpen ? 'hidden' : ''">
       <a href="/" class="inline-flex text-base lg:text-2xl">
-        <img class="my-auto h-6" src="/logo-dark.svg" v-if="isDark" />
-        <img class="my-auto h-6" src="/logo-light.svg" v-else />
+        <!-- fixed the darkmode bug -->
+        <ClientOnly>
+          <img class="my-auto h-6" src="/logo-dark.svg" v-if="isDark" />
+          <img class="my-auto h-6" src="/logo-light.svg" v-else />
+        </ClientOnly>
       </a>
     </div>
 
@@ -35,8 +38,10 @@
         class="!outline-none text-xl h-1.2em my-auto"
         @click="toggleDark()"
       >
-        <carbon:moon v-if="isDark" />
-        <carbon:sun v-else />
+        <ColorScheme placeholder="...">
+          <carbon:moon v-if="isDark" />
+          <carbon:sun v-else />
+        </ColorScheme>
       </button>
       <button
         class="btn-secondary"
