@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const useGlobalState = defineStore({
+export const useGlobalStore = defineStore({
   id: 'global',
 
   state: () => ({
-    isShowQRCode: false
+    isShowQRCode: true
   }),
 
   actions: {

@@ -8,7 +8,7 @@
         ref="searchEl"
         type="search"
         aria-label="Search"
-        class="block bg-slate-200/40 dark:bg-slate-600/50 w-full py-1 px-3 h-10 text-base leading-6 placeholder-slate-400 dark:placeholder-slate-200 transition duration-150 ease-in-out appearance-none md:pr-10 rounded-lg focus:ring-3 focus:ring-violet-500 focus:ring-opacity-50 focus:outline-none focus:placeholder-violet-700 focus:dark:placeholder-violet-300 sm:flex-1"
+        class="block border-violet-500/50 border bg-slate-200/40 dark:bg-slate-600/50 w-full py-1 px-3 h-10 text-base leading-6 placeholder-slate-400 dark:placeholder-slate-200 transition duration-150 ease-in-out appearance-none md:pr-10 rounded-lg focus:ring-3 focus:ring-violet-500 focus:ring-opacity-50 focus:outline-none focus:placeholder-violet-700 focus:dark:placeholder-violet-300 sm:flex-1"
         placeholder="Search a tool (link, category, etc.)"
         v-model="searchModel"
         @input="handleInput"
