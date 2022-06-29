@@ -108,7 +108,9 @@
         <div
           class="h-10 mt-4 mb-4 flex items-center gap-1 sm:justify-between w-80 sm:w-full mx-auto"
         >
-          <GlobalSearch ref="searchEl" v-model:search="q" />
+          <ClientOnly>
+            <GlobalSearch ref="searchEl" v-model:search="q" />
+          </ClientOnly>
 
           <!-- Action -->
           <div class="flex items-center justify-end flex-1 space-x-4">

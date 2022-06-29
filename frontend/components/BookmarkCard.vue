@@ -66,7 +66,7 @@
         :class="[
           horizontal
             ? 'h-32 basis-[13.5rem]'
-            : 'lg:h-67.5 2xl:h-48 basis-[16rem] flex-grow'
+            : 'h-45 lg:h-67.5 2xl:h-48 basis-[16rem] flex-grow'
         ]"
       >
         <img

@@ -43,14 +43,16 @@
           <carbon:sun v-else />
         </ColorScheme>
       </button>
-      <button
-        v-if="!isMobile()"
-        class="btn-secondary"
-        data-trick="Gotcha you"
-        @click="isShowNotify = true"
-      >
-        Collect Wallet
-      </button>
+      <ClientOnly>
+        <button
+          v-if="!isMobile()"
+          class="btn-secondary"
+          data-trick="Gotcha you"
+          @click="isShowNotify = true"
+        >
+          Collect Wallet
+        </button>
+      </ClientOnly>
     </div>
     <slot name="tail" />
   </div>
