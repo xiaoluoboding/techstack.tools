@@ -104,7 +104,7 @@
       <!-- The main -->
       <main class="mx-auto w-full z-10">
         <!-- The Tool Bar -->
-        <div class="h-10 mt-4 mb-4 flex items-center gap-1 justify-between">
+        <div class="h-10 mt-4 mb-4 flex items-center gap-1 sm:justify-between">
           <GlobalSearch ref="searchEl" v-model:search="q" />
 
           <!-- Action -->
@@ -131,7 +131,7 @@
 
         <!-- Sorter -->
         <div
-          class="grid grid-cols-3 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
+          class="grid grid-cols-2 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
         >
           <!-- Filter -->
           <div v-if="displayFiltersBlock" class="flex items-center space-x-2">
@@ -155,8 +155,6 @@
             </a>
           </div>
           <div v-else></div>
-
-          <div></div>
 
           <div class="flex space-x-2 items-center justify-end">
             <label>

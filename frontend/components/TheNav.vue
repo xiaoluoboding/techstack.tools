@@ -44,6 +44,7 @@
         </ColorScheme>
       </button>
       <button
+        v-if="!isMobile"
         class="btn-secondary"
         data-trick="Gotcha you"
         @click="isShowNotify = true"
@@ -67,6 +68,7 @@
 
 <script setup lang="ts">
 import { useDark } from '~/composables/useDark'
+import { isMobile } from '~/utils/'
 
 const { isDark, toggleDark } = useDark()
 

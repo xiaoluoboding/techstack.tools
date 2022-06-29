@@ -66,14 +66,14 @@
         <div
           class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 md:grid-cols-4"
         >
-          <div class="text-center sm:text-left">
+          <div class="text-center lg:text-left">
             <p class="text-lg font-medium text-gray-900">About Us</p>
 
             <nav class="mt-8">
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-gray-700/75"
                     href="https://xiaoluoboding.github.io/monthly/"
                   >
                     <carbon:book /> <span>Predecessor Story</span>
@@ -82,7 +82,7 @@
 
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 hover:text-blue-500 transition"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 hover:text-blue-500 transition"
                     href="https://twitter.com/xiaoluoboding"
                   >
                     <carbon:logo-twitter />
@@ -92,7 +92,7 @@
 
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 transition hover:text-amber-900/75"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-amber-900/75"
                     href="https://www.buymeacoffee.com/xlbd"
                   >
                     <carbon:cafe />
@@ -102,8 +102,8 @@
 
                 <li>
                   <a
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-gray-700/75"
                     href="https://github.com/sponsors/xiaoluoboding"
-                    class="flex space-x-2 text-gray-700 transition hover:text-gray-700/75"
                   >
                     <carbon:logo-github /> <span>Sponsor me on GitHub</span>
                   </a>
@@ -163,7 +163,7 @@
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 transition hover:text-teal-500"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-teal-500"
                     href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5OTY2MjAwNg==&action=getalbum&album_id=2319237207234134019&scene=173&from_msgid=2247487927&from_itemidx=1&count=3&nolastread=1#wechat_redirect"
                   >
                     <ri:wechat-2-fill />
@@ -173,7 +173,7 @@
 
                 <li>
                   <a
-                    class="flex space-x-2 text-gray-700 transition hover:text-violet-500"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-violet-500"
                     href="https://fe-share-weekly.zhubai.love/"
                   >
                     <carbon:email />
