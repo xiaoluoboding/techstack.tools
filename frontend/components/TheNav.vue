@@ -44,7 +44,7 @@
         </ColorScheme>
       </button>
       <button
-        v-if="!isMobile"
+        v-if="!isMobile()"
         class="btn-secondary"
         data-trick="Gotcha you"
         @click="isShowNotify = true"

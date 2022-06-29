@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex shadow-sm w-full max-w-xl flex-auto space-x-2"
-    v-if="!isMobile"
+    v-if="!isMobile()"
   >
     <label
       class="relative flex-1"
