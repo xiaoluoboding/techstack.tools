@@ -28,18 +28,12 @@
         </div>
         <slot name="badge" v-bind="item" />
         <div class="flex-auto" />
-        <!-- <UnoIcon
-          v-if="selectedItem === item.name"
-          class="flex-none i-carbon-checkmark"
-        /> -->
       </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useScrollToTop } from '@/composables/useScrollToTop'
-
 interface Item {
   id: string
   name: string
@@ -56,10 +50,7 @@ defineProps<{
 
 const emit = defineEmits<{ (e: 'toggle', any): void }>()
 
-const { scrollToTop } = useScrollToTop()
-
 const handleSelect = (item) => {
-  scrollToTop()
   emit('toggle', item.name)
 }
 </script>
