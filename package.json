@@ -2,7 +2,7 @@
   "name": "tech-stack.tools",
   "displayName": "Tech Stack Tools",
   "version": "0.1.0",
-  "description": "Discover our curated list of devtools to supercharge your next project.",
+  "description": "Discover our curated list of creative tools to supercharge your next project.",
   "scripts": {
     "dev:be": "air -c backend/scripts/.air.toml",
     "dev:fe": "cd frontend && pnpm i --shamefully-hoist && pnpm dev",
@@ -18,13 +18,17 @@
   "license": "MIT",
   "keywords": [
     "self-hosted",
-    "starter",
+    "creative",
+    "tools",
+    "supercharge",
+    "weekly",
+    "tech",
+    "stack",
     "go",
     "sqlite",
     "vue3",
     "tailwindcss",
-    "vite",
-    "vitepress"
+    "vite"
   ],
   "bugs": {
     "url": "https://github.com/xiaoluoboding/tech-stack.tools/issues"

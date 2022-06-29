@@ -22,7 +22,6 @@ declare module '@vue/runtime-core' {
     'Carbon:search': typeof import('~icons/carbon/search')['default']
     'Carbon:sun': typeof import('~icons/carbon/sun')['default']
     'Carbon:toolsAlt': typeof import('~icons/carbon/tools-alt')['default']
-    Icon: typeof import('~icons/ic/on')['default']
     'Mdi:chevronDoubleLeft': typeof import('~icons/mdi/chevron-double-left')['default']
     'Mdi:chevronDoubleRight': typeof import('~icons/mdi/chevron-double-right')['default']
     'Mdi:qrcodePlus': typeof import('~icons/mdi/qrcode-plus')['default']

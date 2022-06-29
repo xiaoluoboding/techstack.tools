@@ -12,7 +12,7 @@
           <p
             class="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500 sm:max-w-xs sm:mx-0 sm:text-left"
           >
-            Discover our curated list of devtools to
+            Discover our curated list of creative tools to
             <span class="text-neon">supercharge</span> your next project.
           </p>
 

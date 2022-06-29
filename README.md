@@ -16,7 +16,7 @@
 
 - Discover our curated list of creative tools to **supercharge** your next project.
 - We keep track of the most **valuable** devtools for developers、designers、creators.
-- Subscribe our front-end tech stack **weekly**, Join 500+ readers.
+- Subscribe to our front-end tech stack **weekly**, Join 700+ readers.
 
 ## License
 

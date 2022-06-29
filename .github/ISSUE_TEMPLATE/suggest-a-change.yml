@@ -15,9 +15,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: testimonials
+    id: description
     attributes:
-      label: Testimonials
+      label: Description
       description: Please describe what is this tool, what scenarios dose it solve or where does its value lie. If no description is provided we might close it.
       placeholder: I found a valuable tool for front-end developer that...
     validations:
