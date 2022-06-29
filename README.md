@@ -6,7 +6,7 @@
 
 <h1 align="center">Tech Stack Tools</h1>
 
-<p align="center">tech-stack.tools is a curated list of devtools.</p>
+<p align="center">tech-stack.tools is a curated list of creative tools.</p>
 
 ## Preview
 
@@ -14,8 +14,8 @@
 
 ## Features
 
-- Discover our curated list of devtools to **supercharge** your next project.
-- We keep track of the most **valuable** devtools, so you don't have to.
+- Discover our curated list of creative tools to **supercharge** your next project.
+- We keep track of the most **valuable** devtools for developers、designers、creators.
 - Subscribe our front-end tech stack **weekly**, Join 500+ readers.
 
 ## License

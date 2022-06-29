@@ -8,13 +8,13 @@
     </h1>
     <div class="py-4 space-y-2">
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
-        Discover our curated list of devtools to
+        Discover our curated list of creative tools to
         <span class="text-neon">supercharge</span> your next project.
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl whitespace-nowrap">
         We keep track of the most
-        <span class="text-neon">valuable</span> devtools, so you don't have to
-        scour the internet.
+        <span class="text-neon">valuable</span> tools for
+        developers、designers、creators.
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
         Subscribe our front-end tech stack

@@ -1,0 +1,24 @@
+name: "Suggest a Change"
+description: Here is entrance of recommended tools, welcome to self-nominate or suggest some changes.
+labels: ["tools"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please check if your recommend tools exists or not, you can search on tech-stack.tools or use [sourcegraph.com](https://sourcegraph.com/github.com/xiaoluoboding/tech-stack.tools).
+  - type: input
+    id: link
+    attributes:
+      label: Link / URL
+      description: You need provide the link to your recommend project / tool, If no link is provided we might close it.
+      placeholder: https://tech-stack.tools
+    validations:
+      required: true
+  - type: textarea
+    id: testimonials
+    attributes:
+      label: Testimonials
+      description: Please describe what is this tool, what scenarios dose it solve or where does its value lie. If no description is provided we might close it.
+      placeholder: I found a valuable tool for front-end developer that...
+    validations:
+      required: true
