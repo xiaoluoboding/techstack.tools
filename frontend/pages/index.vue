@@ -26,6 +26,7 @@
           <TheHero />
           <!-- Stats -->
           <TheStats
+            class="hidden sm:block"
             :stats="{
               tools: allBookmarkList.length,
               categories: categoriesList.length,
@@ -35,9 +36,9 @@
         </div>
       </div>
       <!-- SVG Background -->
-      <div class="text-gray-100 dark:text-slate-700">
+      <div class="text-gray-100 dark:text-slate-700 max-w-screen">
         <svg
-          class="absolute -bottom-1px left-0 right-0 top-50 lg:top-12 w-full pointer-events-none"
+          class="absolute -bottom-1px left-0 right-0 top-34 sm:top-50 lg:top-12 w-full pointer-events-none"
           preserveAspectRatio="none"
           fill="none"
           id="visual"
@@ -104,7 +105,9 @@
       <!-- The main -->
       <main class="mx-auto w-full z-10">
         <!-- The Tool Bar -->
-        <div class="h-10 mt-4 mb-4 flex items-center gap-1 sm:justify-between">
+        <div
+          class="h-10 mt-4 mb-4 flex items-center gap-1 sm:justify-between w-80 sm:w-full mx-auto"
+        >
           <GlobalSearch ref="searchEl" v-model:search="q" />
 
           <!-- Action -->
@@ -131,7 +134,7 @@
 
         <!-- Sorter -->
         <div
-          class="grid grid-cols-2 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary"
+          class="grid grid-cols-2 min-h-18 sm:flex-row p-5 mb-4 rounded-lg card-bd card-bg text-primary w-80 sm:w-full mx-auto"
         >
           <!-- Filter -->
           <div v-if="displayFiltersBlock" class="flex items-center space-x-2">

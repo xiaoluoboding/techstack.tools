@@ -1,7 +1,7 @@
 <template>
   <figure
-    class="web-bookmark-card relative inset-0 overflow-hidden text-left transition-all duration-300 ease-out max-w-screen"
-    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : 'lg:w-96']"
+    class="web-bookmark-card relative inset-0 overflow-hidden text-left transition-all duration-300 ease-out max-w-screen w-80 sm:w-96 lg:w-120"
+    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : '2xl:w-96']"
   >
     <slot />
     <a
@@ -64,7 +64,9 @@
       <div
         class="relative min-w-1/3 max-h-full"
         :class="[
-          horizontal ? 'h-32 basis-[13.5rem]' : 'h-48 basis-[16rem] flex-grow'
+          horizontal
+            ? 'h-32 basis-[13.5rem]'
+            : 'lg:h-67.5 2xl:h-48 basis-[16rem] flex-grow'
         ]"
       >
         <img
