@@ -50,7 +50,7 @@
           data-trick="Gotcha you"
           @click="isShowNotify = true"
         >
-          Collect Wallet
+          CONNECT WALLET
         </button>
       </ClientOnly>
     </div>
