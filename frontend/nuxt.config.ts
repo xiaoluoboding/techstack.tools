@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       class: 'min-h-screen'
     },
     title:
-      'tech-stack.tools: Tech Stack Tools Database for Devloper、Designer、Creator',
+      'tech-stack.tools: Tech Stack Tools Database for Devleopers、Designers、Creators',
     meta: [
       { hid: 'charset', charset: 'utf-8' },
       {
