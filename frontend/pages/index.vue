@@ -366,7 +366,7 @@ const initBookmarkList = async () => {
 const fetchNotionDatabase = async () => {
   const { data } = await getBookmarkList()
 
-  if (data.length === 1) {
+  if (data.length === 3) {
     await notionStore.fetchPage()
   }
 }
