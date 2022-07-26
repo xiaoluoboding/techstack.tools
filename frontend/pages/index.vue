@@ -364,11 +364,13 @@ const initBookmarkList = async () => {
 }
 
 const fetchNotionDatabase = async () => {
-  const { data } = await getBookmarkList()
+  // const { data } = await getBookmarkList()
 
-  if (data.length === 3) {
-    await notionStore.fetchPage()
-  }
+  // initial the notion database
+  // if (data.length === 3) {
+  //   real logic
+  // }
+  await notionStore.fetchPage()
 }
 
 watch([q, orderBy, sortBy, selectedCategory], syncURL, { deep: true })
@@ -427,7 +429,7 @@ onMounted(async () => {
   isLoadingBookmark.value = true
   await loginAsGuest()
 
-  await fetchNotionDatabase()
+  // await fetchNotionDatabase()
 
   await initBookmarkList()
 

@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+import dayjs from 'dayjs'
 
 const config = useRuntimeConfig()
 
@@ -19,7 +20,13 @@ export default async (req: any) => {
             timestamp: 'created_time',
             direction: 'descending'
           }
-        ]
+        ],
+        filter: {
+          property: 'Date',
+          date: {
+            after: dayjs().subtract(7, 'day').format('YYYY-MM-DD')
+          }
+        }
       })
 
       data = [...data, ...page.results]
