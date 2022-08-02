@@ -8,6 +8,8 @@
 
 <p align="center">tech-stack.tools is a curated list of creative tools.</p>
 
+<p align="center">English | <a href="/README_CN.md" >中文</a></p>
+
 ## Preview
 
 ![Preview](public/preview.png)
