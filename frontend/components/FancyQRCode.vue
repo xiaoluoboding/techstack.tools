@@ -6,7 +6,7 @@
 import { computed, onMounted } from 'vue'
 import fancyQRCode, { createQRCode, renderImage } from 'fancy-qrcode'
 
-import { useDark } from '@/composables/useDark'
+import { isDark } from '@/composables/useDarkMode'
 
 const props = defineProps({
   /**
@@ -18,8 +18,6 @@ const props = defineProps({
    */
   size: { type: String, default: 'medium' }
 })
-
-const { isDark } = useDark()
 
 const baseQRCodeSVG = computed(() => {
   return createQRCode({

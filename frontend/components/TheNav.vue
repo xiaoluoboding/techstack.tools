@@ -33,16 +33,16 @@
         <carbon:logo-github />
       </a>
 
-      <button
-        aria-label="Toggle theme"
-        class="!outline-none text-xl h-1.2em my-auto"
-        @click="toggleDark()"
-      >
-        <ColorScheme placeholder="...">
+      <ClientOnly>
+        <button
+          aria-label="Toggle theme"
+          class="!outline-none text-xl h-1.2em my-auto"
+          @click="toggleDark()"
+        >
           <carbon:moon v-if="isDark" />
           <carbon:sun v-else />
-        </ColorScheme>
-      </button>
+        </button>
+      </ClientOnly>
       <ClientOnly>
         <button
           v-if="!isMobile()"
@@ -69,10 +69,8 @@
 </template>
 
 <script setup lang="ts">
-import { useDark } from '~/composables/useDark'
+import { isDark, toggleDark } from '~/composables/useDarkMode'
 import { isMobile } from '~/utils/'
-
-const { isDark, toggleDark } = useDark()
 
 const isSearchOpen = ref(false)
 const isShowNotify = ref(false)

@@ -244,10 +244,6 @@
       <div class="pt-6 mt-12 border-t border-gray-100">
         <div class="text-center sm:flex sm:justify-between sm:text-left">
           <p class="text-sm text-gray-500">
-            <span class="block sm:inline">All rights reserved</span>
-
-            <span> | </span>
-
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
               href="/terms-of-services"
@@ -266,7 +262,13 @@
           </p>
 
           <p class="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-            &copy; 2022 tech-stack.tools
+            Tech Stack Tools &copy; 2022
+            <a
+              class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
+              href="/"
+              >tech-stack.tools</a
+            >
+            All rights reserved
           </p>
         </div>
       </div>

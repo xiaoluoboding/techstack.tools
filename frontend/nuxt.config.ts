@@ -71,8 +71,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     // https://vueuse.org
     '@vueuse/nuxt',
-    // https://color-mode.nuxtjs.org
-    '@nuxtjs/color-mode',
+    // https://github.com/antfu/unplugin-icons
     'unplugin-icons/nuxt'
   ],
 
@@ -85,10 +84,6 @@ export default defineNuxtConfig({
   unocss: {
     preflight: true,
     attributify: true
-  },
-
-  colorMode: {
-    classSuffix: ''
   },
 
   vite: {
