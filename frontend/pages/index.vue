@@ -261,7 +261,7 @@ const bookmarkStore = useBookmarkStore()
 const route = useRoute()
 
 const fuseOptions = {
-  threshold: 0.1,
+  threshold: 0.2,
   keys: ['link', 'title', 'author', 'publisher', 'description', 'tag']
 }
 
