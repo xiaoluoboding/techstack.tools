@@ -240,6 +240,7 @@
 import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
 import Fuse from 'fuse.js/dist/fuse.basic.esm'
+import { useUrlSearchParams } from '@vueuse/core'
 
 import { useGlobalStore } from '@/stores/global'
 import { useUserStore } from '@/stores/user'
@@ -259,6 +260,7 @@ const userStore = useUserStore()
 const notionStore = useNotionStore()
 const bookmarkStore = useBookmarkStore()
 const route = useRoute()
+const urlSearchParams = useUrlSearchParams('history')
 
 const fuseOptions = {
   threshold: 0.2,
@@ -429,7 +431,7 @@ onMounted(async () => {
   isLoadingBookmark.value = true
   await loginAsGuest()
 
-  // await fetchNotionDatabase()
+  await fetchNotionDatabase()
 
   await initBookmarkList()
 
@@ -438,6 +440,10 @@ onMounted(async () => {
   )
 
   isLoadingBookmark.value = false
+
+  if (urlSearchParams?.category) {
+    toggleCategory(urlSearchParams.category)
+  }
 })
 </script>
 
