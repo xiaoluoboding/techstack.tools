@@ -431,7 +431,7 @@ onMounted(async () => {
   isLoadingBookmark.value = true
   await loginAsGuest()
 
-  await fetchNotionDatabase()
+  // await fetchNotionDatabase()
 
   await initBookmarkList()
 
