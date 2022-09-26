@@ -6,7 +6,8 @@ import { getNotionDatabase, createBookmark } from '@/services'
 
 const STORE_ID = 'notion'
 
-const API_PREFIX = 'https://metafy.vercel.app/api?url='
+// const API_PREFIX = 'https://metafy.vercel.app/api?url='
+const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='
 
 const conventBookmark = async (row: any): Promise<BookmarkCreate> => {
   if (row && row.id) {
