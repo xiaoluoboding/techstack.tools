@@ -77,7 +77,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useScrollToTop } from '@/composables/useScrollToTop'
+import { useScrollToMain } from '@/composables/useScrollToMain'
 
 const props = defineProps({
   total: {
@@ -92,7 +92,7 @@ const props = defineProps({
 
 const emit = defineEmits<{ (e: 'change', number): void }>()
 
-const { scrollToTop } = useScrollToTop()
+const { scrollToMain } = useScrollToMain()
 
 const STEP = 5
 
@@ -118,7 +118,7 @@ const pageRange = computed(() => {
 const handleChangePage = (item) => {
   activePage.value = item
   emit('change', activePage.value)
-  scrollToTop()
+  scrollToMain()
 }
 
 const handleNext = () => {
