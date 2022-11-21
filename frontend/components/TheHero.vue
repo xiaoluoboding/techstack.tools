@@ -18,7 +18,7 @@
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
         Subscribe to our front-end tech stack
-        <span class="text-neon">weekly</span>, Join 700+ readers.
+        <span class="text-neon">weekly</span>, Join 1000+ readers.
       </p>
     </div>
     <div class="max-w-xl mt-4 text-center sm:text-left space-y-4 lg:space-x-4">
