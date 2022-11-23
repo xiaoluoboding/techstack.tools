@@ -1,5 +1,5 @@
 <template>
-  <div class="my-20">
+  <div>
     <article class="prose mx-auto max-w-160 text-slate-900 dark:text-slate-200">
       <h1>Terms and Conditions</h1>
       <p>Last updated: June 18, 2022</p>
@@ -282,7 +282,7 @@
         contact us:
       </p>
       <ul>
-        <li>By email: xiaoluoboding@gmail.com</li>
+        <li>By email: techstacktools@hotmail.com</li>
       </ul>
     </article>
   </div>

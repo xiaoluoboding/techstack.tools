@@ -22,6 +22,8 @@ declare module '@vue/runtime-core' {
     'Carbon:moon': typeof import('~icons/carbon/moon')['default']
     'Carbon:overflowMenuHorizontal': typeof import('~icons/carbon/overflow-menu-horizontal')['default']
     'Carbon:search': typeof import('~icons/carbon/search')['default']
+    'Carbon:sortAscending': typeof import('~icons/carbon/sort-ascending')['default']
+    'Carbon:sortDescending': typeof import('~icons/carbon/sort-descending')['default']
     'Carbon:sun': typeof import('~icons/carbon/sun')['default']
     'Carbon:toolsAlt': typeof import('~icons/carbon/tools-alt')['default']
     'Mdi:chevronDoubleLeft': typeof import('~icons/mdi/chevron-double-left')['default']

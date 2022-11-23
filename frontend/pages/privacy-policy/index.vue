@@ -1,5 +1,5 @@
 <template>
-  <div class="my-20">
+  <div class="">
     <article class="prose mx-auto max-w-160 text-slate-900 dark:text-slate-200">
       <h1>
         Privacy Policy of
@@ -14,8 +14,8 @@
         other sites we own and operate.
       </p>
       <p>
-        Yunwei Xiao ("us", "we", or "our") operates the tech-stack.tools Chrome
-        Extension.
+        xiaoluoboding ("us", "we", or "our") operates the tech-stack.tools
+        Chrome Extension.
       </p>
       <p>
         This policy is effective as of 16 March 2022 and was last updated on 16
@@ -67,7 +67,7 @@
         using the following details:
       </p>
       <p>
-        Yunwei Xiao<br />
+        xiaoluoboding<br />
         <a href="https://tech-stack.tools">https://tech-stack.tools</a>
       </p>
     </article>

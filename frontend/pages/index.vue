@@ -2,21 +2,7 @@
   <div
     class="app pb-16 relative bg-gray-100 dark:bg-slate-700 font-sans text-primary transition duration-300 ease-in-out"
   >
-    <div
-      class="relative bg-white dark:bg-slate-800 !bg-glass dark:text-slate-50 shadow w-full sticky top-0 z-50 border-none"
-    >
-      <TheNav>
-        <template #head>
-          <button
-            aria-label="Toggle Drawer"
-            class="!outline-none text-xl h-1.2em my-auto block lg:hidden"
-            @click="isDrawerOpen = true"
-          >
-            <carbon:menu />
-          </button>
-        </template>
-      </TheNav>
-    </div>
+    <TheHeader />
     <div
       class="pt-10 pb-16 px-3 lg:px-10 lg:pt-24 lg:pb-32 bg-white dark:bg-slate-800 relative"
     >

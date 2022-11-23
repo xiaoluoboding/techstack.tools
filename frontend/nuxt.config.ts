@@ -72,7 +72,8 @@ export default defineNuxtConfig({
     // https://vueuse.org
     '@vueuse/nuxt',
     // https://github.com/antfu/unplugin-icons
-    'unplugin-icons/nuxt'
+    'unplugin-icons/nuxt',
+    '@nuxt/content'
   ],
 
   runtimeConfig: {
@@ -86,6 +87,15 @@ export default defineNuxtConfig({
     attributify: true
   },
 
+  // https://content.nuxtjs.org
+  content: {
+    highlight: {
+      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+      theme: 'dracula'
+    },
+    documentDriven: true
+  },
+
   vite: {
     plugins: [
       ViteComponents({
@@ -96,16 +106,6 @@ export default defineNuxtConfig({
         ],
         dts: true
       })
-    ],
-    // connect the backend
-    server: {
-      cors: true,
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8080/',
-          changeOrigin: true
-        }
-      }
-    }
+    ]
   }
 })

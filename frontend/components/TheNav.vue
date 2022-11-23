@@ -19,14 +19,14 @@
       >
       <button
         aria-label="Search"
-        class="block md:hidden !outline-none text-xl h-1.2em my-auto"
+        class="hidden md:hidden !outline-none text-xl h-1.2em my-auto"
         @click="toggleSearch()"
       >
         <carbon:search />
       </button>
       <a
         aria-label="GitHub"
-        class="!outline-none text-xl h-1.2em my-auto hover:text-violet-300"
+        class="hidden lg:block !outline-none text-xl h-1.2em my-auto hover:text-violet-300"
         href="https://github.com/xiaoluoboding/tech-stack.tools"
         target="_blank"
       >
@@ -45,8 +45,7 @@
       </ClientOnly>
       <ClientOnly>
         <button
-          v-if="!isMobile()"
-          class="btn-secondary"
+          class="btn-secondary hidden lg:block"
           data-trick="Gotcha you"
           @click="isShowNotify = true"
         >

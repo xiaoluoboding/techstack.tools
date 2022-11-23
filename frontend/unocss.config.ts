@@ -4,8 +4,9 @@ import {
   presetAttributify,
   presetUno,
   presetWebFonts,
-  presetTypography
+  presetTypography,
 } from 'unocss'
+import transformerDirectives from '@unocss/transformer-directives'
 
 export default defineConfig<UnocssNuxtOptions>({
   include: [/\.vue$/, /\.ts$/, /\.vue\?vue/],
@@ -21,6 +22,9 @@ export default defineConfig<UnocssNuxtOptions>({
       }
     }),
     presetTypography({})
+  ],
+  transformers: [
+    transformerDirectives(),
   ],
   shortcuts: {
     'flex-center': 'flex justify-center items-center',
