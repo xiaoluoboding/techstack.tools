@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout>
       <ContentDoc
-        class="h-full w-full flex flex-col justify-center items-center px-6"
+        class="h-full px-6"
       />
     </NuxtLayout>
   </div>
