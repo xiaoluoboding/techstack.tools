@@ -1,9 +1,7 @@
 <template>
   <div>
     <NuxtLayout>
-      <ContentDoc
-        class="h-full px-6"
-      />
+      <ContentDoc class="h-full w-200" />
     </NuxtLayout>
   </div>
 </template>

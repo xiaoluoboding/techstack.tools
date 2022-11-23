@@ -1,7 +1,7 @@
 <template>
   <figure
-    class="web-bookmark-card relative inset-0 overflow-hidden shadow-lg hover:shadow-2xl text-left transition-all duration-300 ease-out max-w-screen w-80 sm:w-96 lg:w-180"
-    :class="[bookmarkClass, horizontal ? 'lg:w-[720px]' : '2xl:w-96']"
+    class="web-bookmark-card relative inset-0 overflow-hidden shadow-lg hover:shadow-2xl text-left transition-all duration-300 ease-out max-w-screen w-80 sm:w-96 lg:w-200"
+    :class="[bookmarkClass]"
   >
     <slot />
     <a
@@ -85,7 +85,7 @@
     </a>
     <div
       v-else
-      class="text-center px-20 h-96 flex flex-col justify-center items-center !bg-opacity-30 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10"
+      class="text-center px-20 h-32 flex flex-col justify-center items-center !bg-opacity-30 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10"
       bg="!opacity-75 white dark:slate-800"
     >
       <svg
@@ -258,7 +258,7 @@ watch(
 )
 </script>
 
-<style scoped>
+<style>
 .has-qrcode {
   width: calc(100% - 6rem);
 }
