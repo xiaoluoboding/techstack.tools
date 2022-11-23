@@ -184,16 +184,7 @@ const metaData = reactive<MetaData>({
 })
 const init = async () => {
   isLoading.value = true
-  // if (props.meta) {
-  //   metaData.title = props.meta.title
-  //   metaData.description = props.meta.description
-  //   metaData.link = props.meta.link
-  //   metaData.image = props.meta.image
-  //   metaData.logo = props.meta.logo
-  //   metaData.author = props.meta.author
-  //   metaData.publisher = props.meta.publisher
-  //   // metaData.base64Image = base64Image
-  // } else {
+
   metaData.description =
     '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
   metaData.image = 'https://bookmark.style/preview.png'
@@ -230,22 +221,11 @@ const bookmarkClass = computed(() => {
     {
       'web-bookmark-card--large': props.size === 'large',
       'web-bookmark-card--medium': props.size === 'medium',
-      'web-bookmark-card--small': props.size === 'small',
-      'web-bookmark-card--horizontal': props.horizontal
+      'web-bookmark-card--small': props.size === 'small'
     },
     `rounded-${props.corner}`
   ]
 })
-
-watch(
-  () => props.meta,
-  async (newVal) => {
-    if (newVal) {
-      await init()
-    }
-  },
-  { deep: true, immediate: true }
-)
 
 watch(
   () => props.url,
