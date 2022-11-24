@@ -6,7 +6,7 @@
     <slot />
     <a
       v-if="!isLoading"
-      class="flex flex-wrap text-current no-underline hover:no-underline inset-0 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10"
+      class="flex flex-wrap text-current no-underline hover:no-underline inset-0 backdrop-filter backdrop-blur-lg backdrop-saturate-[180%] filter drop-shadow-xl transition-all duration-300 ease-out z-10 p-0"
       bg="!opacity-75 !white !dark:slate-800"
       :class="[cover === 'right' ? 'flex-row-reverse' : 'flex-row']"
       :href="metaData.link"
