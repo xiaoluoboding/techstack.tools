@@ -129,7 +129,7 @@ import { useMediaQuery } from '@vueuse/core'
 import FancyQRCode from '../FancyQRCode.vue'
 import { getBase64Image } from '@/utils'
 
-const API_PREFIX = 'https://metafy.vercel.app/api?url='
+const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='
 
 type MetaData = {
   title: string
