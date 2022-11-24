@@ -54,11 +54,12 @@
           </div>
         </div>
 
-        <div v-if="qrcode && metaData.link" class="w-24 h-24">
+        <div v-if="qrcode && metaData.link">
           <ClientOnly>
             <FancyQRCode
               :url="metaData.link"
-              class="w-24 h-24 transform scale-125"
+              class="w-28 h-28 transform scale-120"
+              :class="horizontal ? 'hidden' : 'block'"
             />
           </ClientOnly>
         </div>

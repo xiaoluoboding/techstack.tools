@@ -76,12 +76,6 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
 
-  runtimeConfig: {
-    NOTION_KEY: process.env.NOTION_KEY,
-    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
-    UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
-  },
-
   unocss: {
     preflight: true,
     attributify: true
@@ -89,6 +83,9 @@ export default defineNuxtConfig({
 
   // https://content.nuxtjs.org
   content: {
+    navigation: {
+      fields: ['navTitle']
+    },
     highlight: {
       // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
       theme: 'dracula'
@@ -107,5 +104,11 @@ export default defineNuxtConfig({
         dts: true
       })
     ]
+  },
+
+  runtimeConfig: {
+    NOTION_KEY: process.env.NOTION_KEY,
+    NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
+    UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
   }
 })

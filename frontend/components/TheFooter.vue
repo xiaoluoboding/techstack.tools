@@ -124,36 +124,9 @@
                 <li>
                   <a
                     class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
+                    href="/collection/ten-tools-turn-code-snippets-into-beautiful-images"
                   >
-                    For Front-end Developer
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
-                  >
-                    For Back-end Developer
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
-                  >
-                    For Web Design
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/"
-                  >
-                    For Marketing
+                    #1: 10 tools turn code snippets into beautiful images
                   </a>
                 </li>
               </ul>

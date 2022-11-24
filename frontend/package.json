@@ -2,10 +2,14 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev --port 6336",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "serve": "esno dist/server/index.mjs"
+    "build": "nuxi build",
+    "generate": "nuxi cleanup && nuxi generate",
+    "preview": "nuxi preview",
+    "postinstall": "nuxt prepare",
+    "publish": "npm run build && npm run generate && npm run preview",
+    "serve": "esno .output/server/index.mjs",
+    "p:ish": "pnpm install --shamefully-hoist",
+    "p:up": "pnpm up"
   },
   "devDependencies": {
     "@iconify/json": "^2.1.92",
