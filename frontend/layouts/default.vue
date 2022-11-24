@@ -2,7 +2,7 @@
   <TheHeader />
   <main class="max-w-screen-xl w-full mx-auto py-12 2xl:py-16 my-12 sm:rounded">
     <article
-      class="flex flex-col items-center justify-center prose text-zinc-800 dark:text-zinc-100 max-w-none"
+      class="flex flex-col items-center justify-center prose text-slate-800 dark:text-slate-100 max-w-none"
     >
       <slot />
     </article>
@@ -17,25 +17,25 @@
 .prose h3 a,
 .prose h4 a {
   @apply no-underline;
-  @apply text-zinc-800 dark:text-zinc-50;
+  @apply text-slate-800 dark:text-slate-50;
 }
 
 .prose p,
 .prose ul > li,
 .prose ol > li {
-  @apply text-zinc-700 dark:text-zinc-300;
+  @apply text-slate-700 dark:text-slate-300;
 }
 
 .prose ul > li > li {
   @apply list-circle list-inside;
 }
 .prose ul > li > li::marker {
-  @apply text-zinc-200 dark:text-zinc-100;
+  @apply text-slate-200 dark:text-slate-100;
 }
 
 .prose h2 a:hover,
 .prose h3 a:hover {
-  @apply border-b border-zinc-600 dark:border-zinc-300;
+  @apply border-b border-slate-600 dark:border-slate-300;
 }
 
 .prose a {
@@ -43,7 +43,7 @@
 }
 
 .prose pre {
-  @apply bg-zinc-900;
+  @apply bg-slate-900;
 }
 
 .prose strong {
@@ -52,7 +52,7 @@
 
 .prose code,
 .prose kbd {
-  @apply px-2 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-700 dark:text-lochmara-400;
+  @apply px-2 py-1 rounded-lg bg-slate-100 dark:bg-slate-700 dark:text-lochmara-400;
 }
 
 .prose code::before,
@@ -61,7 +61,7 @@
 }
 
 .prose hr {
-  @apply dark:border-zinc-500;
+  @apply dark:border-slate-500;
 }
 
 .prose p > img {
