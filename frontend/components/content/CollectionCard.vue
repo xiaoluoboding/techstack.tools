@@ -2,6 +2,7 @@
   <figure
     class="web-bookmark-card relative inset-0 overflow-hidden shadow-lg hover:shadow-2xl text-left transition-all duration-300 ease-out max-w-screen w-80 sm:w-96 lg:w-200"
     :class="[bookmarkClass]"
+    :key="url"
   >
     <slot />
     <a
@@ -122,14 +123,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed, watch, type PropType } from 'vue'
-import axios from 'axios'
+import { ref, reactive, computed, onMounted, type PropType } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 
 import FancyQRCode from '../FancyQRCode.vue'
 import { getBase64Image } from '@/utils'
 
-const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='
+// const API_PREFIX = 'https://get-metafy.netlify.app/.netlify/functions/api?url='
+// const API_PREFIX = 'https://metafy.vercel.app/api?url='
 
 type MetaData = {
   title: string
@@ -183,35 +184,25 @@ const metaData = reactive<MetaData>({
   author: '',
   publisher: ''
 })
-const init = async () => {
-  isLoading.value = true
-
-  metaData.description =
-    '🪄 Turn any link into a stylish visual web bookmark, one-click to copy the beautiful web bookmark image.'
-  metaData.image = 'https://bookmark.style/preview.png'
-  metaData.logo = 'https://bookmark.style/favicon.svg'
-  metaData.title = 'bookmark.style: stylish your visual web bookmark'
-  metaData.link = props.url
-  // }
-
-  isLoading.value = false
-}
 
 const loadMeta = async () => {
   isLoading.value = true
 
-  const { data } = (await axios.get(`${API_PREFIX}${props.url}`)) as {
-    data: MetaData
-  }
+  const { data } = await useFetch('/api/metafy', {
+    query: {
+      url: props.url
+    }
+  })
 
-  if (data) {
-    metaData.title = data.title
-    metaData.description = data.description
+  if (data.value && !data.value.error) {
+    const metaInfo = data.value.data
+    metaData.title = metaInfo.title
+    metaData.description = metaInfo.description
     metaData.link = props.url
-    metaData.image = data.image
-    metaData.logo = data.logo
-    metaData.author = data.author
-    metaData.publisher = data.publisher
+    metaData.image = metaInfo.image
+    metaData.logo = metaInfo.logo
+    metaData.author = metaInfo.author
+    metaData.publisher = metaInfo.publisher
   }
 
   isLoading.value = false
@@ -228,15 +219,9 @@ const bookmarkClass = computed(() => {
   ]
 })
 
-watch(
-  () => props.url,
-  async (newVal) => {
-    if (newVal) {
-      await loadMeta()
-    }
-  },
-  { deep: true, immediate: true }
-)
+onMounted(async () => {
+  await loadMeta()
+})
 </script>
 
 <style>

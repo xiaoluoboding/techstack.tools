@@ -53,7 +53,7 @@ export default defineEventHandler(async (event) => {
         style: {
           backgroundImage: 'linear-gradient(135deg, #8b5cf6,  #c4b5fd)'
         },
-        tw: 'flex text-slate-800 px-8 py-12 font-900 rounded-lg'
+        tw: 'flex text-slate-800 p-8 font-900 rounded-lg'
       }
     },
     {
