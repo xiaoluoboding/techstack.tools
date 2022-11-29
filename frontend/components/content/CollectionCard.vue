@@ -194,6 +194,13 @@ const loadMeta = async () => {
     }
   })
 
+  await useFetch('/api/ogi', {
+    query: {
+      title: '10 tools turn code snippets into beautiful images',
+      issue: 1
+    }
+  })
+
   if (data.value && !data.value.error) {
     const metaInfo = data.value.data
     metaData.title = metaInfo.title
