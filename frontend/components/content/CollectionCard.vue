@@ -123,7 +123,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, computed, onMounted, type PropType } from 'vue'
+import { ref, reactive, computed, watch, type PropType } from 'vue'
 import { useMediaQuery } from '@vueuse/core'
 
 import FancyQRCode from '../FancyQRCode.vue'
@@ -219,9 +219,16 @@ const bookmarkClass = computed(() => {
   ]
 })
 
-onMounted(async () => {
-  await loadMeta()
-})
+watch(
+  () => props.url,
+  (newVal) => {
+    loadMeta()
+  },
+  {
+    immediate: true,
+    deep: true
+  }
+)
 </script>
 
 <style>
