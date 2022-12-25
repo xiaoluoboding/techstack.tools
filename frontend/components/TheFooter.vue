@@ -123,10 +123,11 @@
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="text-gray-700 transition hover:text-gray-700/75"
-                    href="/collection/ten-tools-turn-code-snippets-into-beautiful-images"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-teal-500"
+                    href="#"
                   >
-                    #1: 10 tools turn code snippets into beautiful images
+                    <carbon:magic-wand />
+                    <span>Coming soon</span>
                   </a>
                 </li>
               </ul>
@@ -140,7 +141,7 @@
               <ul class="space-y-4 text-sm">
                 <li>
                   <a
-                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-teal-500"
+                    class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-violet-500"
                     href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5OTY2MjAwNg==&action=getalbum&album_id=2319237207234134019&scene=173&from_msgid=2247487927&from_itemidx=1&count=3&nolastread=1#wechat_redirect"
                   >
                     <ri:wechat-2-fill />
@@ -161,13 +162,13 @@
                 <li>
                   <a
                     class="flex group justify-center gap-1.5 sm:justify-start"
-                    href="https://www.getrevue.co/profile/xiaoluoboding"
+                    href="https://tech-stack-share.beehiiv.com/subscribe"
                   >
                     <div
                       class="flex space-x-2 text-gray-700 transition group-hover:text-blue-500"
                     >
-                      <carbon:logo-twitter />
-                      <span>Twitter Newsletter</span>
+                      <carbon:email />
+                      <span>Tech Stack Share Newsletter</span>
                     </div>
 
                     <span class="relative flex w-2 h-2 -mr-2">
@@ -190,18 +191,18 @@
             <ul class="mt-8 space-y-4 text-sm">
               <li>
                 <a
-                  class="flex items-center justify-center gap-1.5 sm:justify-start"
+                  class="flex items-center justify-center gap-1.5 sm:justify-start text-gray-700 hover:text-violet-500"
                   :href="GITHUB_ISSUE_URL"
                 >
                   <carbon:idea />
 
-                  <span class="text-gray-700">Suggest a Change</span>
+                  <span>Suggest a Change</span>
                 </a>
               </li>
 
               <li>
                 <a
-                  class="flex items-center justify-center gap-1.5 sm:justify-start"
+                  class="flex items-center justify-center gap-1.5 sm:justify-start text-gray-700 hover:text-violet-500"
                   :href="GITHUB_ISSUE_URL"
                 >
                   <carbon:tools-alt />

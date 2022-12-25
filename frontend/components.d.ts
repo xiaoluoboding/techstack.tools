@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     'Carbon:idea': typeof import('~icons/carbon/idea')['default']
     'Carbon:logoGithub': typeof import('~icons/carbon/logo-github')['default']
     'Carbon:logoTwitter': typeof import('~icons/carbon/logo-twitter')['default']
+    'Carbon:magicWand': typeof import('~icons/carbon/magic-wand')['default']
     'Carbon:menu': typeof import('~icons/carbon/menu')['default']
     'Carbon:moon': typeof import('~icons/carbon/moon')['default']
     'Carbon:overflowMenuHorizontal': typeof import('~icons/carbon/overflow-menu-horizontal')['default']
