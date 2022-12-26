@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt/config'
+import { defineNuxtConfig } from 'nuxt'
 import ViteComponents from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
@@ -72,8 +72,8 @@ export default defineNuxtConfig({
     // https://vueuse.org
     '@vueuse/nuxt',
     // https://github.com/antfu/unplugin-icons
-    'unplugin-icons/nuxt',
-    '@nuxt/content'
+    'unplugin-icons/nuxt'
+    // '@nuxt/content'
   ],
 
   unocss: {
@@ -82,17 +82,17 @@ export default defineNuxtConfig({
   },
 
   // https://content.nuxtjs.org
-  content: {
-    navigation: {
-      fields: ['navTitle']
-    },
-    highlight: {
-      // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
-      theme: 'dracula'
-    },
-    documentDriven: true,
-    ignores: ['api']
-  },
+  // content: {
+  //   navigation: {
+  //     fields: ['navTitle']
+  //   },
+  //   highlight: {
+  //     // See the available themes on https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-theme
+  //     theme: 'dracula'
+  //   },
+  //   documentDriven: true,
+  //   ignores: ['api']
+  // },
 
   vite: {
     plugins: [
@@ -104,7 +104,17 @@ export default defineNuxtConfig({
         ],
         dts: true
       })
-    ]
+    ],
+    // connect the backend
+    server: {
+      cors: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8080/',
+          changeOrigin: true
+        }
+      }
+    }
   },
 
   runtimeConfig: {
