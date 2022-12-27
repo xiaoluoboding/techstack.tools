@@ -6,7 +6,6 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers.post['Content-Type'] = 'application/json; charset=UTF-8'
 axios.defaults.withCredentials = true
 axios.defaults.responseType = 'json'
-// axios.defaults.baseURL = 'https://tech-stack.tools'
 
 axios.interceptors.request.use(
   (config) => {

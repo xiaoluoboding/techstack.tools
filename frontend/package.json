@@ -12,25 +12,25 @@
     "p:up": "pnpm up"
   },
   "devDependencies": {
-    "@iconify/json": "^2.1.92",
+    "@iconify/json": "^2.1.157",
     "@nuxt/content": "2.2.0",
-    "@pinia/nuxt": "^0.4.0",
-    "@unocss/nuxt": "^0.46.5",
-    "@unocss/transformer-directives": "^0.46.5",
-    "@vueuse/nuxt": "^9.1.0",
+    "@pinia/nuxt": "^0.4.6",
+    "@unocss/nuxt": "^0.48",
+    "@unocss/transformer-directives": "^0.48.0",
+    "@vueuse/nuxt": "^9.9.0",
     "esno": "^0.16.3",
-    "nuxt": "3.0.0-rc.8",
-    "unplugin-icons": "^0.14.8",
-    "unplugin-vue-components": "^0.22.4"
+    "nuxt": "^3.0.0",
+    "unplugin-icons": "^0.14.15",
+    "unplugin-vue-components": "^0.22.12"
   },
   "dependencies": {
     "@notionhq/client": "1.0.4",
-    "@vueuse/core": "^9.1.0",
-    "axios": "^0.27.2",
-    "dayjs": "^1.11.3",
+    "@vueuse/core": "^9.9.0",
+    "axios": "^1.2.1",
+    "dayjs": "^1.11.7",
     "fancy-qrcode": "^0.1.0",
     "fuse.js": "^6.6.2",
-    "idb": "^7.0.2",
+    "idb": "^7.1.1",
     "lodash-es": "^4.17.21",
     "pinia": "^2.0.18",
     "satori": "^0.0.44"
