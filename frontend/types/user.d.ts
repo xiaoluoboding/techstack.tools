@@ -29,6 +29,7 @@ export interface UserDelete {
 }
 
 export interface UserPatch {
+  id: UserId
   name?: string
   password?: string
 }

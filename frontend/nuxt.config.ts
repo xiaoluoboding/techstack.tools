@@ -113,14 +113,14 @@ export default defineNuxtConfig({
     ]
   },
 
-  nitro: {
-    devProxy: {
-      '/api/v1/': {
-        target: 'http://localhost:8080/api/',
-        changeOrigin: true
-      }
-    }
-  },
+  // nitro: {
+  //   devProxy: {
+  //     '/api/': {
+  //       target: 'http://localhost:8080/api/',
+  //       changeOrigin: true
+  //     }
+  //   }
+  // },
 
   runtimeConfig: {
     NOTION_KEY: process.env.NOTION_KEY,
