@@ -162,7 +162,7 @@
                 <li>
                   <a
                     class="flex group justify-center gap-1.5 sm:justify-start"
-                    href="https://tech-stack-share.beehiiv.com/subscribe"
+                    href="https://techstacktools.substack.com/?showWelcome=true"
                   >
                     <div
                       class="flex space-x-2 text-gray-700 transition group-hover:text-blue-500"

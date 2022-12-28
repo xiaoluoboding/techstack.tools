@@ -17,7 +17,7 @@
         developers、designers、creators.
       </p>
       <p class="text-base sm:text-lg md:text-2xl max-w-3xl">
-        Subscribe to our front-end tech stack
+        Subscribe to our tech stack collection share
         <span class="text-neon">weekly</span>, Join 1000+ readers.
       </p>
     </div>

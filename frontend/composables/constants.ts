@@ -28,7 +28,8 @@ export const ORDER_BY_FIELDS = {
 export const GITHUB_ISSUE_URL =
   'https://github.com/xiaoluoboding/tech-stack.tools/issues/new/choose'
 
-export const NEWSLETTERS_URL = 'https://tech-stack-share.beehiiv.com/subscribe'
+export const NEWSLETTERS_URL =
+  'https://techstacktools.substack.com/?showWelcome=true'
 
 export const BOOKMARK_STYLE_URL = 'https://www.bookmark.style/?url='
 
