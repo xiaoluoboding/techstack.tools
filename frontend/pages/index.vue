@@ -422,7 +422,7 @@ onMounted(async () => {
   await initBookmarkList()
 
   newsletterWeeks.value = Math.round(
-    dayjs().diff(dayjs('2021-11-25'), 'weeks', true)
+    dayjs().diff(dayjs('2022-11-18'), 'weeks', true)
   )
 
   isLoadingBookmark.value = false
