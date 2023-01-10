@@ -3,12 +3,12 @@ import dayjs from 'dayjs'
 
 const config = useRuntimeConfig()
 
-export default async (req: any) => {
+export default defineEventHandler(async (event) => {
   const notion = new Client({ auth: config.NOTION_KEY })
 
   const databaseId = config.NOTION_DATABASE_ID
 
-  let data = []
+  let data: any[] = []
 
   const getPage = async (pageCursor?: string) => {
     try {
@@ -42,4 +42,4 @@ export default async (req: any) => {
   await getPage()
 
   return { data }
-}
+})
