@@ -24,7 +24,7 @@
     </div>
     <div class="max-w-xl mt-4 text-center sm:text-left space-y-4 lg:space-x-4">
       <a :href="GITHUB_ISSUE_URL" rel="noopener" target="_blank" class="btn-lg">
-        <carbon:logo-github class="text-xl" /> Contribute on GitHub
+        <RiGithubFill class="text-xl" /> Contribute on GitHub
       </a>
       <a
         :href="NEWSLETTERS_URL"
@@ -32,7 +32,7 @@
         target="_blank"
         class="btn-secondary-lg"
       >
-        <carbon:email class="text-xl" /> Subscribe newsletters
+        <RiMailLine class="text-xl" /> Subscribe newsletters
       </a>
     </div>
   </div>
@@ -40,4 +40,5 @@
 
 <script lang="ts" setup>
 import { GITHUB_ISSUE_URL, NEWSLETTERS_URL } from '@/composables/constants'
+import { RiGithubFill, RiMailLine } from '@remixicon/vue'
 </script>

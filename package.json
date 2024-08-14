@@ -1,5 +1,5 @@
 {
-  "name": "tech-stack.tools",
+  "name": "techstack.tools",
   "displayName": "Tech Stack Tools",
   "version": "0.1.0",
   "description": "Discover our curated list of creative tools to supercharge your next project.",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaoluoboding/tech-stack.tools.git"
+    "url": "git+https://github.com/xiaoluoboding/techstack.tools.git"
   },
   "author": "xiaoluoboding",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "vite"
   ],
   "bugs": {
-    "url": "https://github.com/xiaoluoboding/tech-stack.tools/issues"
+    "url": "https://github.com/xiaoluoboding/techstack.tools/issues"
   },
-  "homepage": "https://github.com/xiaoluoboding/tech-stack.tools#readme"
+  "homepage": "https://github.com/xiaoluoboding/techstack.tools#readme"
 }

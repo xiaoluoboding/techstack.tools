@@ -61,7 +61,7 @@
                 class="text-violet-700 transition hover:text-violet-700/75"
               >
                 <span class="sr-only">GitHub</span>
-                <carbon:logo-github class="h-6 w-6" />
+                <RiGithubFill class="h-6 w-6" />
               </a>
             </li>
           </ul>
@@ -80,7 +80,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-gray-700/75"
                     href="https://xiaoluoboding.github.io/monthly/"
                   >
-                    <carbon:book /> <span>Predecessor Story</span>
+                    <RiBookOpenLine /> <span>Predecessor Story</span>
                   </a>
                 </li>
 
@@ -89,7 +89,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 hover:text-blue-500 transition"
                     href="https://twitter.com/xiaoluoboding"
                   >
-                    <carbon:logo-twitter />
+                    <RiTwitterXLine />
                     <span>Follow me on Twitter</span>
                   </a>
                 </li>
@@ -99,7 +99,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-amber-900/75"
                     href="https://www.buymeacoffee.com/xlbd"
                   >
-                    <carbon:cafe />
+                    <RiCupLine />
                     <span>Buy me a coffee</span>
                   </a>
                 </li>
@@ -109,7 +109,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-gray-700/75"
                     href="https://github.com/sponsors/xiaoluoboding"
                   >
-                    <carbon:logo-github /> <span>Sponsor me on GitHub</span>
+                    <RiGithubFill /> <span>Sponsor me on GitHub</span>
                   </a>
                 </li>
               </ul>
@@ -126,7 +126,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-teal-500"
                     href="#"
                   >
-                    <carbon:magic-wand />
+                    <RiMagicLine />
                     <span>Coming soon</span>
                   </a>
                 </li>
@@ -144,7 +144,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-violet-500"
                     href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5OTY2MjAwNg==&action=getalbum&album_id=2319237207234134019&scene=173&from_msgid=2247487927&from_itemidx=1&count=3&nolastread=1#wechat_redirect"
                   >
-                    <ri:wechat-2-fill />
+                    <RiWechat2Line />
                     <span>公众号专栏</span>
                   </a>
                 </li>
@@ -154,7 +154,7 @@
                     class="flex justify-center sm:justify-start space-x-2 text-gray-700 transition hover:text-violet-500"
                     href="https://fe-share-weekly.zhubai.love/"
                   >
-                    <carbon:email />
+                    <RiMailLine />
                     <span>竹白专栏</span>
                   </a>
                 </li>
@@ -167,7 +167,7 @@
                     <div
                       class="flex space-x-2 text-gray-700 transition group-hover:text-blue-500"
                     >
-                      <carbon:email />
+                      <RiMailLine />
                       <span>Tech Stack Share Newsletter</span>
                     </div>
 
@@ -194,7 +194,7 @@
                   class="flex items-center justify-center gap-1.5 sm:justify-start text-gray-700 hover:text-violet-500"
                   :href="GITHUB_ISSUE_URL"
                 >
-                  <carbon:idea />
+                  <RiLightbulbFlashLine />
 
                   <span>Suggest a Change</span>
                 </a>
@@ -205,7 +205,7 @@
                   class="flex items-center justify-center gap-1.5 sm:justify-start text-gray-700 hover:text-violet-500"
                   :href="GITHUB_ISSUE_URL"
                 >
-                  <carbon:tools-alt />
+                  <RiToolsLine />
 
                   <span class="text-gray-700">Request a Feature</span>
                 </a>
@@ -252,4 +252,15 @@
 
 <script lang="ts" setup>
 import { GITHUB_ISSUE_URL } from '@/composables/constants'
+import {
+  RiBookOpenLine,
+  RiCupLine,
+  RiGithubFill,
+  RiLightbulbFlashLine,
+  RiMagicLine,
+  RiMailLine,
+  RiToolsLine,
+  RiTwitterXLine,
+  RiWechat2Line
+} from '@remixicon/vue'
 </script>

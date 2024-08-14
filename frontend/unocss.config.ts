@@ -1,10 +1,10 @@
-import { UnocssNuxtOptions } from '@unocss/nuxt'
+import type { UnocssNuxtOptions } from '@unocss/nuxt'
 import {
   defineConfig,
   presetAttributify,
   presetUno,
   presetWebFonts,
-  presetTypography,
+  presetTypography
 } from 'unocss'
 import transformerDirectives from '@unocss/transformer-directives'
 
@@ -23,9 +23,7 @@ export default defineConfig<UnocssNuxtOptions>({
     }),
     presetTypography({})
   ],
-  transformers: [
-    transformerDirectives(),
-  ],
+  transformers: [transformerDirectives()],
   shortcuts: {
     'flex-center': 'flex justify-center items-center',
     'text-brand': 'text-violet-500 dark:text-violet-300',

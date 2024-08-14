@@ -44,8 +44,8 @@
           class="flex items-center p-2 hover:bg-sky-lightest focus:bg-sky-lightest focus:outline-none rounded-r-md"
           @click="toggleSortBy"
         >
-          <carbon:sort-ascending v-if="sortBy === 'asc'" />
-          <carbon:sort-descending v-else />
+          <RiSortAsc v-if="sortBy === 'asc'" />
+          <RiSortDesc v-else />
         </button>
       </div>
     </div>
@@ -53,6 +53,7 @@
 </template>
 
 <script setup lang="ts">
+import { RiSortAsc, RiSortDesc } from '@remixicon/vue'
 import { ORDER_BY_FIELDS } from '~/composables/constants'
 
 const props = defineProps<{ sortBy: string; orderBy: string }>()

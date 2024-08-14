@@ -9,7 +9,7 @@
           class="!outline-none text-xl h-1.2em my-auto block lg:hidden"
           @click="isDrawerOpen = true"
         >
-          <carbon:menu />
+          <RiMenuLine />
         </button>
       </template>
     </TheNav>
@@ -17,6 +17,8 @@
 </template>
 
 <script lang="ts" setup>
+import { RiMenuLine } from '@remixicon/vue'
+
 import { ref } from 'vue'
 const isDrawerOpen = ref(false)
 </script>

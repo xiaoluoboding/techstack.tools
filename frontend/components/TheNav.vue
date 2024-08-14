@@ -22,7 +22,7 @@
         class="hidden md:hidden !outline-none text-xl h-1.2em my-auto"
         @click="toggleSearch()"
       >
-        <carbon:search />
+        <RiSearchLine />
       </button>
       <a
         aria-label="GitHub"
@@ -30,7 +30,7 @@
         href="https://github.com/xiaoluoboding/tech-stack.tools"
         target="_blank"
       >
-        <carbon:logo-github />
+        <RiGithubFill />
       </a>
 
       <ClientOnly>
@@ -39,8 +39,8 @@
           class="!outline-none text-xl h-1.2em my-auto"
           @click="toggleDark()"
         >
-          <carbon:moon v-if="isDark" />
-          <carbon:sun v-else />
+          <RiMoonLine v-if="isDark" />
+          <RiSunLine v-else />
         </button>
       </ClientOnly>
       <ClientOnly>
@@ -68,6 +68,12 @@
 </template>
 
 <script setup lang="ts">
+import {
+  RiGithubFill,
+  RiMoonLine,
+  RiSearchLine,
+  RiSunLine
+} from '@remixicon/vue'
 import { isDark, toggleDark } from '~/composables/useDarkMode'
 import { isMobile } from '~/utils/'
 

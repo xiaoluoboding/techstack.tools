@@ -28,7 +28,7 @@
             aria-label="Dismiss Popup"
             @click="emit('close')"
           >
-            <carbon:close />
+            <RiCloseLine />
           </button>
         </aside>
       </transition>
@@ -37,6 +37,8 @@
 </template>
 
 <script lang="ts" setup>
+import { RiCloseLine } from '@remixicon/vue'
+
 const props = defineProps({
   visible: {
     type: Boolean,

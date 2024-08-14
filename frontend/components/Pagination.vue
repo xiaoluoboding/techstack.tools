@@ -5,7 +5,7 @@
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handlePrev"
       >
-        <carbon:chevron-left />
+        <RiArrowLeftLine />
       </button>
     </li>
 
@@ -25,8 +25,8 @@
         @mouseenter="leftEnter = true"
         @mouseleave="leftEnter = false"
       >
-        <mdi:chevron-double-left v-if="leftEnter" />
-        <carbon:overflow-menu-horizontal v-else />
+        <RiArrowLeftDoubleLine v-if="leftEnter" />
+        <RiMoreLine v-else />
       </button>
     </li>
 
@@ -51,8 +51,8 @@
         @mouseenter="rightEnter = true"
         @mouseleave="rightEnter = false"
       >
-        <mdi:chevron-double-right v-if="rightEnter" />
-        <carbon:overflow-menu-horizontal v-else />
+        <RiArrowRightDoubleLine v-if="rightEnter" />
+        <RiMoreFill v-else />
       </button>
     </li>
 
@@ -70,13 +70,22 @@
         class="inline-flex items-center justify-center w-8 h-8 rounded"
         @click="handleNext"
       >
-        <carbon:chevron-right />
+        <RiArrowRightSLine />
       </button>
     </li>
   </ol>
 </template>
 
 <script lang="ts" setup>
+import {
+  RiArrowLeftDoubleLine,
+  RiArrowLeftLine,
+  RiArrowRightDoubleLine,
+  RiArrowRightSLine,
+  RiMoreFill,
+  RiMoreLine
+} from '@remixicon/vue'
+
 import { useScrollToMain } from '@/composables/useScrollToMain'
 
 const props = defineProps({

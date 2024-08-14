@@ -105,7 +105,8 @@ export default defineNuxtConfig({
       ViteComponents({
         resolvers: [
           IconsResolver({
-            componentPrefix: ''
+            prefix: '',
+            strict: true
           })
         ],
         dts: true
@@ -113,18 +114,20 @@ export default defineNuxtConfig({
     ]
   },
 
-  // nitro: {
-  //   devProxy: {
-  //     '/api/': {
-  //       target: 'http://localhost:8080/api/',
-  //       changeOrigin: true
-  //     }
-  //   }
-  // },
+  nitro: {
+    devProxy: {
+      '/api/': {
+        target: 'http://localhost:8080/api/',
+        changeOrigin: true
+      }
+    }
+  },
 
   runtimeConfig: {
     NOTION_KEY: process.env.NOTION_KEY,
     NOTION_DATABASE_ID: process.env.NOTION_DATABASE_ID,
     UMAMI_WEBSITE_ID: process.env.UMAMI_WEBSITE_ID
-  }
+  },
+
+  compatibilityDate: '2024-08-14'
 })

@@ -76,7 +76,7 @@
             class="absolute top-0 right-0 !outline-none text-2xl block lg:hidden"
             @click="isDrawerOpen = false"
           >
-            <carbon:close />
+            <RiCloseLine />
           </button>
           <FilterButtons
             title="Categories"
@@ -105,8 +105,8 @@
               class="!outline-none text-xl h-1.2em my-auto"
               @click="toggleQRCode()"
             >
-              <mdi:qrcode-plus v-if="isShowQRCode" />
-              <mdi:qrcode-remove v-else />
+              <RiQrCodeLine v-if="isShowQRCode" />
+              <RiQrCodeLine v-else />
             </button>
             <a
               class="btn"
@@ -114,7 +114,7 @@
               rel="noopener"
               target="_blank"
             >
-              <carbon:add class="h-6 w-6" />
+              <RiAddLine class="h-6 w-6" />
               <span>Suggest a Change</span>
             </a>
           </div>
@@ -141,7 +141,7 @@
               class="ml-2 opacity-70 hover:opacity-100 inline-flex items-center gap-1"
               @click.prevent="clearFilters"
             >
-              <carbon:filter-remove />
+              <RiFilterOffLine />
               Clear filter{{ filtersCount > 1 ? 's' : '' }}
             </a>
           </div>
@@ -214,7 +214,7 @@
           v-if="filterdBookmarkList.length > PAGE_SIZE"
           :total="filterdBookmarkList.length"
           :page-size="PAGE_SIZE"
-          @change="(val) => (pageCount = val)"
+          @change="(val: number) => (pageCount = val)"
         />
       </main>
     </div>
@@ -225,7 +225,7 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted } from 'vue'
 import dayjs from 'dayjs'
-import Fuse from 'fuse.js/dist/fuse.basic.esm'
+import Fuse from 'fuse.js'
 import { useUrlSearchParams } from '@vueuse/core'
 
 import { useGlobalStore } from '@/stores/global'
@@ -240,6 +240,12 @@ import {
   BOOKMARK_STYLE_URL,
   TWITTER_SHARE_URL
 } from '@/composables/constants'
+import {
+  RiAddLine,
+  RiCloseLine,
+  RiFilterOffLine,
+  RiQrCodeLine
+} from '@remixicon/vue'
 
 const globalStore = useGlobalStore()
 const userStore = useUserStore()
@@ -320,7 +326,7 @@ const loginAsGuest = async () => {
   }
 }
 
-function toggleCategory(category) {
+function toggleCategory(category: string) {
   if (selectedCategory.value === category) {
     selectedCategory.value = null
     return
@@ -330,7 +336,7 @@ function toggleCategory(category) {
 
 function clearFilters() {
   selectedCategory.value = null
-  q.value = null
+  q.value = ''
 }
 
 const initBookmarkList = async () => {
@@ -428,7 +434,7 @@ onMounted(async () => {
   isLoadingBookmark.value = false
 
   if (urlSearchParams?.category) {
-    toggleCategory(urlSearchParams.category)
+    toggleCategory(urlSearchParams.category as string)
   }
 })
 </script>
