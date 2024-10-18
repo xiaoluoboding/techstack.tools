@@ -27,7 +27,7 @@
       <a
         aria-label="GitHub"
         class="hidden lg:block !outline-none text-xl h-1.2em my-auto hover:text-violet-300"
-        href="https://github.com/xiaoluoboding/tech-stack.tools"
+        href="https://github.com/xiaoluoboding/techstack.tools"
         target="_blank"
       >
         <RiGithubFill />
@@ -41,15 +41,6 @@
         >
           <RiMoonLine v-if="isDark" />
           <RiSunLine v-else />
-        </button>
-      </ClientOnly>
-      <ClientOnly>
-        <button
-          class="btn-secondary hidden lg:block"
-          data-trick="Gotcha you"
-          @click="isShowNotify = true"
-        >
-          CONNECT WALLET
         </button>
       </ClientOnly>
     </div>

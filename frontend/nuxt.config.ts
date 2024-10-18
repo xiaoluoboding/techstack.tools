@@ -5,7 +5,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 const title = 'Explore Tech Stack Tools'
 const description =
   'Discover our curated list of tech stack tools to supercharge your next project. Created by @xiaoluoboding.'
-const url = 'https://tech-stack.tools'
+const url = 'https://techstack.tools'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         class: 'min-h-screen'
       },
       title:
-        'tech-stack.tools: Tech Stack Tools Database for Devleopers、Designers、Creators',
+        'techstack.tools: Tech Stack Tools Database for Devleopers、Designers、Creators',
       meta: [
         { hid: 'charset', charset: 'utf-8' },
         {
@@ -64,7 +64,12 @@ export default defineNuxtConfig({
           async: true,
           defer: true,
           'data-website-id': 'f1902438-519c-4acd-98d9-2a6f0de4f111',
-          src: 'https://analytics.tech-stack.tools/umami.js'
+          src: 'https://analytics.techstack.tools/umami.js'
+        },
+        {
+          defer: true,
+          'data-domain': 'techstack.tools',
+          src: 'https://plausible.io/js/script.js'
         }
       ]
     }

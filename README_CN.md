@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="https://github.com/xiaoluoboding/tech-stack.tools">
+  <a href="https://github.com/xiaoluoboding/techstack.tools">
     <img src="/public/logo.svg" width="256">
   </a>
 </p>
 
 <h1 align="center">Tech Stack Tools</h1>
 
-<p align="center">tech-stack.tools 是一个精选的创造者工具合集</p>
+<p align="center">techstack.tools 是一个精选的创造者工具合集</p>
 
 <p align="center"><a href="/README.md" >English</a> | 中文 </p>
 

@@ -55,7 +55,7 @@
 
             <li>
               <a
-                href="https://github.com/xiaoluoboding/tech-stack.tools"
+                href="https://github.com/xiaoluoboding/techstack.tools"
                 rel="noopener noreferrer"
                 target="_blank"
                 class="text-violet-700 transition hover:text-violet-700/75"
@@ -240,7 +240,7 @@
             <a
               class="inline-block text-violet-500 underline transition hover:text-violet-500/75"
               href="/"
-              >tech-stack.tools</a
+              >techstack.tools</a
             >
             All rights reserved
           </p>

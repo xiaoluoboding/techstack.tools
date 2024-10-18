@@ -31,7 +31,7 @@
         <p>
           <strong>Company</strong> (referred to as either &quot;the
           Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-          this Agreement) refers to tech-stack.tools.
+          this Agreement) refers to techstack.tools.
         </p>
       </li>
       <li>
@@ -67,12 +67,12 @@
       </li>
       <li>
         <p>
-          <strong>Website</strong> refers to tech-stack.tools, accessible from
+          <strong>Website</strong> refers to techstack.tools, accessible from
           <a
-            href="https://tech-stack.tools"
+            href="https://techstack.tools"
             rel="external nofollow noopener"
             target="_blank"
-            >https://tech-stack.tools</a
+            >https://techstack.tools</a
           >
         </p>
       </li>

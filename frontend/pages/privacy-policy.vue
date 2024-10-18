@@ -5,15 +5,15 @@
       <span class="text-neon"><em>tech-stack</em>.tools</span>
     </h1>
     <p>
-      Your privacy is important to us. It is tech-stack.tools&#39;s policy to
+      Your privacy is important to us. It is techstack.tools&#39;s policy to
       respect your privacy and comply with any applicable law and regulation
       regarding any personal information we may collect about you, including
       across our website,
-      <a href="https://tech-stack.tools">https://tech-stack.tools</a>, and other
+      <a href="https://techstack.tools">https://techstack.tools</a>, and other
       sites we own and operate.
     </p>
     <p>
-      xiaoluoboding ("us", "we", or "our") operates the tech-stack.tools Chrome
+      xiaoluoboding ("us", "we", or "our") operates the techstack.tools Chrome
       Extension.
     </p>
     <p>
@@ -22,7 +22,7 @@
     </p>
     <h3>How do we access your data?</h3>
     <p>
-      We never store your data, tech-stack.tools is a tool running on your local
+      We never store your data, techstack.tools is a tool running on your local
       chrome. We can not touch your data, and we can not access your data.
     </p>
     <h3>How do we share your data?</h3>
@@ -65,7 +65,7 @@
     </p>
     <p>
       xiaoluoboding<br />
-      <a href="https://tech-stack.tools">https://tech-stack.tools</a>
+      <a href="https://techstack.tools">https://techstack.tools</a>
     </p>
   </NuxtLayout>
 </template>

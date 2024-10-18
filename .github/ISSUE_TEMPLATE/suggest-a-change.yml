@@ -5,13 +5,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please check if your recommend tools exists or not, you can search on tech-stack.tools or use [sourcegraph.com](https://sourcegraph.com/github.com/xiaoluoboding/tech-stack.tools).
+        Please check if your recommend tools exists or not, you can search on techstack.tools or use [sourcegraph.com](https://sourcegraph.com/github.com/xiaoluoboding/techstack.tools).
   - type: input
     id: link
     attributes:
       label: Link / URL
       description: You need provide the link to your recommend project / tool, If no link is provided we might close it.
-      placeholder: https://tech-stack.tools
+      placeholder: https://techstack.tools
     validations:
       required: true
   - type: textarea

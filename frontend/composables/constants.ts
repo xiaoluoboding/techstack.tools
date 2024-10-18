@@ -26,7 +26,7 @@ export const ORDER_BY_FIELDS = {
 }
 
 export const GITHUB_ISSUE_URL =
-  'https://github.com/xiaoluoboding/tech-stack.tools/issues/new/choose'
+  'https://github.com/xiaoluoboding/techstack.tools/issues/new/choose'
 
 export const NEWSLETTERS_URL =
   'https://techstacktools.substack.com/?showWelcome=true'
